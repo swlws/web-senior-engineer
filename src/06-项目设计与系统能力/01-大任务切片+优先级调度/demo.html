@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>任务切片 + 调度示例</title>
+    <style>
+      #list {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="start">开始渲染大列表</button>
+    <div id="list"></div>
+
+    <script>
+      // Polyfill for browsers that don't support scheduler API
+      if (!window.scheduler) {
+        window.scheduler = {
+          postTask: (cb, { priority = 'user-visible', delay = 0 } = {}) => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                cb();
+                resolve();
+              }, delay);
+            });
+          },
+        };
+      }
+
+      const listContainer = document.getElementById('list');
+      const startBtn = document.getElementById('start');
+
+      const TOTAL_ITEMS = 10000;
+      const CHUNK_SIZE = 100;
+
+      function renderChunk(startIndex) {
+        const fragment = document.createDocumentFragment();
+
+        for (
+          let i = startIndex;
+          i < startIndex + CHUNK_SIZE && i < TOTAL_ITEMS;
+          i++
+        ) {
+          const item = document.createElement('div');
+          item.textContent = `📌 列表项 #${i + 1}`;
+          fragment.appendChild(item);
+        }
+
+        listContainer.appendChild(fragment);
+      }
+
+      async function renderListInChunks() {
+        listContainer.innerHTML = '';
+        let index = 0;
+        const controller = new TaskController({ priority: 'background' });
+
+        while (index < TOTAL_ITEMS) {
+          await scheduler.postTask(
+            () => {
+              renderChunk(index);
+              index += CHUNK_SIZE;
+            },
+            {
+              priority: 'user-visible',
+              signal: controller.signal,
+            }
+          );
+        }
+      }
+
+      startBtn.addEventListener('click', () => {
+        renderListInChunks();
+      });
+    </script>
+  </body>
+</html>
