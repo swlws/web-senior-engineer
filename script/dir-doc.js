@@ -10,7 +10,6 @@ function readDir(dir) {
         if (stat.isDirectory()) {
             const children = readDir(filePath);
             if (children.length === 0) {
-                // 叶子节点目录
                 res.push({
                     title: file,
                     path: filePath,
@@ -24,7 +23,6 @@ function readDir(dir) {
                 });
             }
         } else {
-            // 文件作为叶子节点
             res.push({
                 title: file,
                 path: filePath,
@@ -38,9 +36,9 @@ function readDir(dir) {
 function generateMarkdown(tree, level = 0) {
     let md = '';
     tree.forEach(node => {
-        const relativePath = path.relative(path.resolve(__dirname, '../doc'), node.path).replace(/\\/g, '/');
+        let relativePath = path.relative(path.resolve(__dirname, '../doc'), node.path).replace(/\\/g, '/');
+        relativePath = relativePath.replace(/ /g, '%20');
         if (node.children.length === 0) {
-            // 叶子节点，生成链接
             md += '  '.repeat(level) + `- [${node.title}](${relativePath})\n`;
         } else {
             md += '  '.repeat(level) + `- ${node.title}\n`;
