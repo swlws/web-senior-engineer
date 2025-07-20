@@ -27,6 +27,8 @@
   - Vue
     - [01-vue2响应式.md](03-框架与工程化/Vue/01-vue2响应式.md)
     - [02-vue3响应式.md](03-框架与工程化/Vue/02-vue3响应式.md)
+  - webpack
+    - [readme.md](03-框架与工程化/webpack/readme.md)
 - 04-网络与安全
   - [01-DNS解析.md](04-网络与安全/01-DNS解析.md)
   - [02-TCP连接.md](04-网络与安全/02-TCP连接.md)
@@ -44,4 +46,6 @@
     - [demo.html](06-项目设计与系统能力/01-大任务切片+优先级调度/demo.html)
     - [performance.png](06-项目设计与系统能力/01-大任务切片+优先级调度/performance.png)
     - [readme.md](06-项目设计与系统能力/01-大任务切片+优先级调度/readme.md)
+- 07-算法
+  - [readme.md](07-算法/readme.md)
 - [README.md](README.md)
