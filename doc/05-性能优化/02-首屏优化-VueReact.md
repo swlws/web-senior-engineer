@@ -1,10 +1,12 @@
-# 首屏优化 - Vue
+# 首屏优化 - Vue/React
 
 从构建配置、加载策略、渲染优化、网络加速、实践落地等角度进行的系统性改造建议，适用于大型或中型项目的性能提升。
 
 ## ✅ 一、构建层面优化
 
 ### 1. 拆包 + 代码分割（webpack / Vite）
+
+#### Vue
 
 - 配置路由懒加载（异步组件）：
   ```js
@@ -26,6 +28,21 @@
   }
   }
   ```
+
+#### React
+
+- 使用 React.lazy 和 Suspense：
+  ```js
+  const Dashboard = React.lazy(() => import('./pages/Dashboard'))
+  <Suspense fallback={<Loading />}>
+    <Dashboard />
+  </Suspense>
+  ```
+- 使用动态路由分包（适用于 React Router v6）：
+  ```tsx
+  const Home = lazy(() => import(/* webpackChunkName: "home" */ "./Home"));
+  ```
+- 配合 webpack 或 Vite 设置合理的 splitChunks 策略。
 
 ### 2. 构建产物压缩（开启 gzip / brotli）
 
