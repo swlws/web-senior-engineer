@@ -33,28 +33,51 @@
 - 资源懒加载与预加载的实现方式？
 - DOM 性能优化建议？
 - 如何做前端性能监控？监控哪些指标？
+- 前端性能优化指标（TTFB、FCP、LCP、FID）
 
 ---
 
 ## 三、框架与工程化
 
-### 1. Vue / React
+### 1. Vue（或 React）
 
-- Vue 的响应式原理？Vue2 和 Vue3 的区别？
-- React 的虚拟 DOM 和 Diff 算法如何实现？
-- hooks 原理？如何实现一个自定义的 `useDebounce`？
-- 状态管理方案有哪些？你如何选择？
+- 响应式原理（Vue 2 Object.defineProperty / Vue 3 Proxy）
+- 虚拟 DOM、diff 算法
+- 生命周期、Composition API
+- 状态管理方案（Vuex、Pinia / Redux、Zustand）
+- 自定义指令、组件通信（props/emit、$attrs、provide/inject）
 
-### 2. 工程化
+### 2. React（如适用）
 
-- 如何实现一个自定义 Webpack loader 或 plugin？
+- Hooks 原理、useEffect 工作机制
+- Fiber 架构、Reconciliation 算法
+- Context、Portal、ErrorBoundary
+- 性能优化（memo、useMemo、lazy/suspense）
+
+## 四. 工程化
+
+### 1. Webpack
+
+- 构建流程、热更新原理（HMR）
+- 插件机制与 loader 编写
+- 模块联邦（Module Federation）
+- Tree Shaking、代码分割、懒加载
 - Tree-shaking 的原理？什么情况下会失效？
-- 什么是模块联邦（Module Federation）？
+- 性能优化：缓存策略、构建速度优化
 - 如何构建一个微前端架构？你使用过哪些方案？
+
+### 2. Vite
+
+### 3. 工程实践
+
+- Git 工作流（Git Flow、PR Code Review）
+- CI/CD 流程（如 GitHub Actions、Jenkins）
+- 单元测试（Jest/Vitest）、端到端测试（Playwright/Cypress）
+- 性能监控（Lighthouse、自研上报方案）
 
 ---
 
-## 四、网络与安全
+## 五、网络与安全
 
 - HTTP1.1、HTTP2、HTTP3 的主要区别？
 - TLS 握手过程？HTTPS 的安全原理？
@@ -64,7 +87,7 @@
 
 ---
 
-## 五、算法与编程能力
+## 六、算法与编程能力
 
 - 实现一个字符串高亮函数 `splitByHighlight(str, keyword)`？
 - 找出数组中和为目标值的两个数？
@@ -74,7 +97,7 @@
 
 ---
 
-## 六、项目设计与系统能力
+## 七、项目设计与系统能力
 
 - 请介绍一个你主导的前端项目？你在其中承担了哪些职责？
 - 如何设计一套可复用的组件库？涉及哪些关键点？
@@ -84,7 +107,7 @@
 
 ---
 
-## 七、软实力与业务理解
+## 八、软实力与业务理解
 
 - 你如何理解前端在整个技术体系中的定位？
 - 如何推动跨团队协作？有没有推动过技术决策？
