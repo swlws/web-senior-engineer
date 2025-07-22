@@ -24,9 +24,15 @@
     - [01-ReactFiber.md](03-框架与工程化/React/01-ReactFiber.md)
     - [02-FiberTree.md](03-框架与工程化/React/02-FiberTree.md)
     - [03-React是如何使用scheduler进行任务调度的.md](03-框架与工程化/React/03-React是如何使用scheduler进行任务调度的.md)
+    - [04-协调算法.md](03-框架与工程化/React/04-协调算法.md)
   - Vue
-    - [01-vue2响应式.md](03-框架与工程化/Vue/01-vue2响应式.md)
-    - [02-vue3响应式.md](03-框架与工程化/Vue/02-vue3响应式.md)
+    - [01-大版本差异.md](03-框架与工程化/Vue/01-大版本差异.md)
+    - [02-响应式-Vue2.md](03-框架与工程化/Vue/02-响应式-Vue2.md)
+    - [03-响应式-Vue3.md](03-框架与工程化/Vue/03-响应式-Vue3.md)
+    - [04-响应式对比.md](03-框架与工程化/Vue/04-响应式对比.md)
+    - [05-Diff算法-Vue2.md](03-框架与工程化/Vue/05-Diff算法-Vue2.md)
+    - [06-Diff算法-Vue3.md](03-框架与工程化/Vue/06-Diff算法-Vue3.md)
+    - [07-Diff算法对比.md](03-框架与工程化/Vue/07-Diff算法对比.md)
   - webpack
     - [readme.md](03-框架与工程化/webpack/readme.md)
 - 04-网络与安全
@@ -38,6 +44,9 @@
   - [06-UDP连接.md](04-网络与安全/06-UDP连接.md)
   - [07-WebRTC.md](04-网络与安全/07-WebRTC.md)
   - [08-WebTransport.md](04-网络与安全/08-WebTransport.md)
+  - [09-XSS.md](04-网络与安全/09-XSS.md)
+  - [10-CSRF.md](04-网络与安全/10-CSRF.md)
+  - [11-JWT-Token.md](04-网络与安全/11-JWT-Token.md)
 - 05-性能优化
   - [01-首屏优化.md](05-性能优化/01-首屏优化.md)
   - [02-首屏优化-VueReact.md](05-性能优化/02-首屏优化-VueReact.md)
@@ -45,7 +54,6 @@
   - 01-大任务切片+优先级调度
     - [demo.html](06-项目设计与系统能力/01-大任务切片+优先级调度/demo.html)
     - [performance.png](06-项目设计与系统能力/01-大任务切片+优先级调度/performance.png)
-    - [readme.md](06-项目设计与系统能力/01-大任务切片+优先级调度/readme.md)
 - 07-算法
   - [readme.md](07-算法/readme.md)
 - [README.md](README.md)
