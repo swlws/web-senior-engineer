@@ -10,6 +10,8 @@
   - [07-requestIdleCallback与requestAnimationFrame.md](01-javascript/07-requestIdleCallback与requestAnimationFrame.md)
   - [08-Scheduler-API.md](01-javascript/08-Scheduler-API.md)
   - [08-WebWorker.md](01-javascript/08-WebWorker.md)
+  - [09-闭包.md](01-javascript/09-闭包.md)
+  - [10-销毁闭包.md](01-javascript/10-销毁闭包.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -33,7 +35,11 @@
     - [05-Diff算法-Vue2.md](03-框架与工程化/Vue/05-Diff算法-Vue2.md)
     - [06-Diff算法-Vue3.md](03-框架与工程化/Vue/06-Diff算法-Vue3.md)
     - [07-Diff算法对比.md](03-框架与工程化/Vue/07-Diff算法对比.md)
+    - [08-生命周期.md](03-框架与工程化/Vue/08-生命周期.md)
   - webpack
+    - [01-简述.md](03-框架与工程化/webpack/01-简述.md)
+    - [02-构建流程.md](03-框架与工程化/webpack/02-构建流程.md)
+    - [03-模块联邦.md](03-框架与工程化/webpack/03-模块联邦.md)
     - [readme.md](03-框架与工程化/webpack/readme.md)
 - 04-网络与安全
   - [01-DNS解析.md](04-网络与安全/01-DNS解析.md)
@@ -56,4 +62,6 @@
     - [performance.png](06-项目设计与系统能力/01-大任务切片+优先级调度/performance.png)
 - 07-算法
   - [readme.md](07-算法/readme.md)
+- 08-线上故障
+  - [01-部分用户实时数据不更新.md](08-线上故障/01-部分用户实时数据不更新.md)
 - [README.md](README.md)
