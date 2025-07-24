@@ -9,12 +9,15 @@
 #### Vue
 
 - 配置路由懒加载（异步组件）：
+
   ```js
   // Vue Router 懒加载
   const Home = () => import(/* webpackChunkName: "home" */ "@/views/Home.vue");
   ```
+
 - 使用动态导入方式对第三方组件库（如 ECharts、Monaco）做懒加载。
 - 合理设置 splitChunks（webpack）或 rollupOptions.output.manualChunks（Vite）：
+
   ```js
   // Vite 示例
   build: {
@@ -32,21 +35,26 @@
 #### React
 
 - 使用 React.lazy 和 Suspense：
+
   ```js
   const Dashboard = React.lazy(() => import('./pages/Dashboard'))
   <Suspense fallback={<Loading />}>
     <Dashboard />
   </Suspense>
   ```
+
 - 使用动态路由分包（适用于 React Router v6）：
+
   ```tsx
   const Home = lazy(() => import(/* webpackChunkName: "home" */ "./Home"));
   ```
+
 - 配合 webpack 或 Vite 设置合理的 splitChunks 策略。
 
 ### 2. 构建产物压缩（开启 gzip / brotli）
 
 - Webpack 配置：
+
   ```js
   const CompressionWebpackPlugin = require("compression-webpack-plugin");
   new CompressionWebpackPlugin({
@@ -54,6 +62,7 @@
     algorithm: "gzip",
   });
   ```
+
 - 服务端（如 nginx）需启用 gzip_static 或 brotli_static
 
 ## 🚀 二、加载策略优化
