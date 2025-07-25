@@ -1,17 +1,17 @@
 # 目录结构
 
-- 01-javascript
-  - [01-变量声明.md](01-javascript/01-变量声明.md)
-  - [02-防抖和节流.md](01-javascript/02-防抖和节流.md)
-  - [03-原型链与继承机制.md](01-javascript/03-原型链与继承机制.md)
-  - [04-this的绑定规则.md](01-javascript/04-this的绑定规则.md)
-  - [05-事件循环-Web.md](01-javascript/05-事件循环-Web.md)
-  - [06-事件循环-Node.md](01-javascript/06-事件循环-Node.md)
-  - [07-requestIdleCallback与requestAnimationFrame.md](01-javascript/07-requestIdleCallback与requestAnimationFrame.md)
-  - [08-Scheduler-API.md](01-javascript/08-Scheduler-API.md)
-  - [08-WebWorker.md](01-javascript/08-WebWorker.md)
-  - [09-闭包.md](01-javascript/09-闭包.md)
-  - [10-销毁闭包.md](01-javascript/10-销毁闭包.md)
+- 01-JS
+  - [01-变量声明.md](01-JS/01-变量声明.md)
+  - [02-防抖和节流.md](01-JS/02-防抖和节流.md)
+  - [03-原型链与继承机制.md](01-JS/03-原型链与继承机制.md)
+  - [04-this的绑定规则.md](01-JS/04-this的绑定规则.md)
+  - [05-事件循环-Web.md](01-JS/05-事件循环-Web.md)
+  - [06-事件循环-Node.md](01-JS/06-事件循环-Node.md)
+  - [07-requestIdleCallback与requestAnimationFrame.md](01-JS/07-requestIdleCallback与requestAnimationFrame.md)
+  - [08-Scheduler-API.md](01-JS/08-Scheduler-API.md)
+  - [08-WebWorker.md](01-JS/08-WebWorker.md)
+  - [09-闭包.md](01-JS/09-闭包.md)
+  - [10-销毁闭包.md](01-JS/10-销毁闭包.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -41,28 +41,32 @@
     - [02-构建流程.md](03-框架与工程化/webpack/02-构建流程.md)
     - [03-模块联邦.md](03-框架与工程化/webpack/03-模块联邦.md)
     - [readme.md](03-框架与工程化/webpack/readme.md)
-- 04-网络与安全
-  - [01-DNS解析.md](04-网络与安全/01-DNS解析.md)
-  - [02-TCP连接.md](04-网络与安全/02-TCP连接.md)
-  - [03-TLS协商过程.md](04-网络与安全/03-TLS协商过程.md)
-  - [04-HTTP协议.md](04-网络与安全/04-HTTP协议.md)
-  - [05-对头阻塞.md](04-网络与安全/05-对头阻塞.md)
-  - [06-UDP连接.md](04-网络与安全/06-UDP连接.md)
-  - [07-WebRTC.md](04-网络与安全/07-WebRTC.md)
-  - [08-WebTransport.md](04-网络与安全/08-WebTransport.md)
-  - [09-XSS.md](04-网络与安全/09-XSS.md)
-  - [10-CSRF.md](04-网络与安全/10-CSRF.md)
-  - [11-JWT-Token.md](04-网络与安全/11-JWT-Token.md)
-- 05-性能优化
-  - [01-首屏优化.md](05-性能优化/01-首屏优化.md)
-  - [02-首屏优化-VueReact.md](05-性能优化/02-首屏优化-VueReact.md)
-- 06-项目设计与系统能力
+- 04-性能优化
+  - [01-首屏优化.md](04-性能优化/01-首屏优化.md)
+  - [02-首屏优化-VueReact.md](04-性能优化/02-首屏优化-VueReact.md)
+  - [03-性能指标.md](04-性能优化/03-性能指标.md)
+- 05-架构设计
   - 01-大任务切片+优先级调度
-    - [demo.html](06-项目设计与系统能力/01-大任务切片+优先级调度/demo.html)
-    - [performance.png](06-项目设计与系统能力/01-大任务切片+优先级调度/performance.png)
-    - [readme.md](06-项目设计与系统能力/01-大任务切片+优先级调度/readme.md)
+    - [demo.html](05-架构设计/01-大任务切片+优先级调度/demo.html)
+    - [performance.png](05-架构设计/01-大任务切片+优先级调度/performance.png)
+    - [readme.md](05-架构设计/01-大任务切片+优先级调度/readme.md)
   - 02-低代码
-    - [readme.md](06-项目设计与系统能力/02-低代码/readme.md)
+    - [lit.md](05-架构设计/02-低代码/lit.md)
+    - [readme.md](05-架构设计/02-低代码/readme.md)
+  - 03-基于Promise的并发处理
+    - [readme.md](05-架构设计/03-基于Promise的并发处理/readme.md)
+- 06-网络与安全
+  - [01-DNS解析.md](06-网络与安全/01-DNS解析.md)
+  - [02-TCP连接.md](06-网络与安全/02-TCP连接.md)
+  - [03-TLS协商过程.md](06-网络与安全/03-TLS协商过程.md)
+  - [04-HTTP协议.md](06-网络与安全/04-HTTP协议.md)
+  - [05-对头阻塞.md](06-网络与安全/05-对头阻塞.md)
+  - [06-UDP连接.md](06-网络与安全/06-UDP连接.md)
+  - [07-WebRTC.md](06-网络与安全/07-WebRTC.md)
+  - [08-WebTransport.md](06-网络与安全/08-WebTransport.md)
+  - [09-XSS.md](06-网络与安全/09-XSS.md)
+  - [10-CSRF.md](06-网络与安全/10-CSRF.md)
+  - [11-JWT-Token.md](06-网络与安全/11-JWT-Token.md)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
