@@ -27,6 +27,12 @@
     - [02-FiberTree.md](03-框架与工程化/React/02-FiberTree.md)
     - [03-React是如何使用scheduler进行任务调度的.md](03-框架与工程化/React/03-React是如何使用scheduler进行任务调度的.md)
     - [04-协调算法.md](03-框架与工程化/React/04-协调算法.md)
+    - [05-Diff算法.md](03-框架与工程化/React/05-Diff算法.md)
+    - [06-受控与非受控组件.md](03-框架与工程化/React/06-受控与非受控组件.md)
+    - [07-声明式编程.md](03-框架与工程化/React/07-声明式编程.md)
+    - [08-JSX 的本质.md](03-框架与工程化/React/08-JSX%20的本质.md)
+    - [09-简化版createElement.md](03-框架与工程化/React/09-简化版createElement.md)
+    - [10-useLayoutEffect与useEffect区别.md](03-框架与工程化/React/10-useLayoutEffect与useEffect区别.md)
     - [readme.md](03-框架与工程化/React/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架与工程化/Vue/01-大版本差异.md)
