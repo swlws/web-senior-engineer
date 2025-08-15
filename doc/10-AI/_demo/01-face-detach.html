@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TensorFlow.js 人脸检测 Demo - BlazeFace</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        margin: 0;
+      }
+      .wrap {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+      header {
+        padding: 16px 20px;
+        border-bottom: 1px solid #e5e7eb55;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      header h1 {
+        font-size: 18px;
+        margin: 0;
+        font-weight: 700;
+      }
+      header .pill {
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #eef2ff55;
+        border: 1px solid #c7d2fe55;
+      }
+
+      main {
+        display: grid;
+        place-items: center;
+        padding: 18px;
+      }
+      .stage {
+        position: relative;
+        width: min(960px, 95vw);
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background: #0b132b;
+      }
+      video,
+      canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      video {
+        object-fit: cover;
+        transform: scaleX(1);
+      }
+
+      .hud {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        backdrop-filter: blur(6px);
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-size: 12px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #10b981;
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.9);
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        padding: 12px 18px;
+        border-top: 1px solid #e5e7eb55;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      button,
+      select,
+      label {
+        font: inherit;
+      }
+      button {
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb66;
+        background: #ffffff10;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #ffffff20;
+      }
+      button.primary {
+        background: #3b82f6;
+        color: #fff;
+        border-color: transparent;
+      }
+      .kvs {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+      .spacer {
+        flex: 1;
+      }
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>TensorFlow.js 人脸检测 Demo</h1>
+        <div class="pill">BlazeFace + WebGL</div>
+        <div class="spacer"></div>
+        <div class="kvs">提示：首次运行需允许摄像头权限</div>
+      </header>
+
+      <main>
+        <div class="stage" id="stage">
+          <video id="video" playsinline autoplay muted></video>
+          <canvas id="canvas"></canvas>
+          <div class="hud" id="hud">
+            <span class="dot" id="statusDot"></span
+            ><span id="statusText">准备中…</span
+            ><span id="fps" style="margin-left: 8px; opacity: 0.8"></span>
+          </div>
+        </div>
+      </main>
+
+      <footer class="toolbar">
+        <div class="row">
+          <button id="btnStart" class="primary">开始</button>
+          <button id="btnStop">停止</button>
+        </div>
+        <div class="row">
+          <label>
+            镜像
+            <input type="checkbox" id="mirror" checked />
+          </label>
+          <label>
+            摄像头
+            <select id="facing">
+              <option value="user" selected>前置（自拍）</option>
+              <option value="environment">后置（环境）</option>
+            </select>
+          </label>
+          <label>
+            置信度阈值
+            <input
+              id="threshold"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.75"
+              style="vertical-align: middle"
+            />
+            <span id="thVal" class="kvs">0.75</span>
+          </label>
+        </div>
+        <div class="spacer"></div>
+        <div class="kvs">模型：BlazeFace（单张人脸更稳定，多人也可识别）</div>
+      </footer>
+    </div>
+
+    <!-- TensorFlow.js & Models via jsDelivr CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.16.0/dist/tf.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface@0.1.0/dist/blazeface.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+
+    <script>
+      const els = {
+        video: document.getElementById("video"),
+        canvas: document.getElementById("canvas"),
+        hud: document.getElementById("hud"),
+        statusText: document.getElementById("statusText"),
+        statusDot: document.getElementById("statusDot"),
+        fps: document.getElementById("fps"),
+        btnStart: document.getElementById("btnStart"),
+        btnStop: document.getElementById("btnStop"),
+        mirror: document.getElementById("mirror"),
+        facing: document.getElementById("facing"),
+        threshold: document.getElementById("threshold"),
+        thVal: document.getElementById("thVal"),
+        stage: document.getElementById("stage"),
+      };
+
+      let stream = null;
+      let model = null;
+      let running = false;
+      let rafId = null;
+      let lastTime = 0;
+
+      function setStatus(text, ok = true) {
+        els.statusText.textContent = text;
+        els.statusDot.style.background = ok ? "#10b981" : "#ef4444";
+        els.statusDot.style.boxShadow = ok
+          ? "0 0 8px rgba(16,185,129,.9)"
+          : "0 0 8px rgba(239,68,68,.9)";
+      }
+
+      function resizeCanvasToVideo() {
+        const rect = els.stage.getBoundingClientRect();
+        els.canvas.width = rect.width;
+        els.canvas.height = rect.height;
+      }
+
+      async function startCamera() {
+        stopCamera();
+        const constraints = {
+          audio: false,
+          video: {
+            facingMode: els.facing.value,
+            width: { ideal: 1280 },
+            height: { ideal: 720 },
+          },
+        };
+        try {
+          stream = await navigator.mediaDevices.getUserMedia(constraints);
+          els.video.srcObject = stream;
+          await els.video.play();
+          resizeCanvasToVideo();
+          setStatus("摄像头已就绪");
+        } catch (err) {
+          console.error(err);
+          setStatus("无法访问摄像头：" + err.message, false);
+          throw err;
+        }
+      }
+
+      function stopCamera() {
+        if (stream) {
+          for (const track of stream.getTracks()) track.stop();
+          stream = null;
+        }
+        els.video.srcObject = null;
+      }
+
+      async function loadModel() {
+        if (!model) {
+          setStatus("加载模型中…");
+          await tf.setBackend("webgl");
+          await tf.ready();
+          model = await blazeface.load();
+          setStatus("模型已加载");
+        }
+        return model;
+      }
+
+      function drawPredictions(preds, ctx, mirror = false, threshold = 0.75) {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.lineWidth = 2;
+        ctx.font = "12px ui-sans-serif, system-ui";
+        ctx.textBaseline = "top";
+
+        const w = ctx.canvas.width;
+        const h = ctx.canvas.height;
+        // Draw each prediction
+        preds.forEach((p) => {
+          if (p.probability < threshold) return;
+          // BlazeFace box is [ymin, xmin, ymax, xmax] in relative coords if annotateBoxes=false; but in UMD it returns topLeft & bottomRight in pixels.
+          // In our case, model.estimateFaces returns topLeft and bottomRight in pixels relative to input. We map using video->canvas scale.
+          const [x1, y1] = p.topLeft;
+          const [x2, y2] = p.bottomRight;
+          // Compute scaling between video size and canvas size
+          const vw = els.video.videoWidth || w;
+          const vh = els.video.videoHeight || h;
+          const scale = Math.min(w / vw, h / vh);
+          const displayW = vw * scale;
+          const displayH = vh * scale;
+          const offsetX = (w - displayW) / 2;
+          const offsetY = (h - displayH) / 2;
+          let dx1 = x1 * scale + offsetX;
+          let dy1 = y1 * scale + offsetY;
+          let dx2 = x2 * scale + offsetX;
+          let dy2 = y2 * scale + offsetY;
+          if (mirror) {
+            const nx1 = w - dx2;
+            const nx2 = w - dx1;
+            dx1 = nx1;
+            dx2 = nx2;
+          }
+
+          const bw = dx2 - dx1;
+          const bh = dy2 - dy1;
+          ctx.strokeStyle = "#22d3ee";
+          ctx.fillStyle = "rgba(34, 211, 238, .15)";
+          ctx.strokeRect(dx1, dy1, bw, bh);
+          ctx.fillRect(dx1, dy1, bw, bh);
+
+          // Landmarks (eyes, nose, mouth corners, ears)
+          if (p.landmarks) {
+            ctx.fillStyle = "#f59e0b";
+            p.landmarks.forEach(([lx, ly]) => {
+              let px = lx * scale + offsetX;
+              let py = ly * scale + offsetY;
+              if (mirror) px = w - px;
+              ctx.beginPath();
+              ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+              ctx.fill();
+            });
+          }
+
+          // Label with probability
+          const label = `face ${(p.probability * 100).toFixed(1)}%`;
+          ctx.fillStyle = "#0ea5e9";
+          ctx.fillRect(
+            dx1,
+            Math.max(0, dy1 - 18),
+            ctx.measureText(label).width + 10,
+            16
+          );
+          ctx.fillStyle = "#fff";
+          ctx.fillText(label, dx1 + 5, Math.max(0, dy1 - 18));
+        });
+      }
+
+      async function loop() {
+        if (!running) return;
+        const now = performance.now();
+        const dt = now - lastTime; // ms
+        const fps = dt > 0 ? 1000 / dt : 0;
+        if (lastTime) els.fps.textContent = `· ${fps.toFixed(1)} FPS`;
+        lastTime = now;
+
+        const ctx = els.canvas.getContext("2d");
+        const mirror = els.mirror.checked;
+        const threshold = parseFloat(els.threshold.value);
+
+        // Mirror video visually via CSS
+        els.video.style.transform = mirror ? "scaleX(-1)" : "scaleX(1)";
+
+        // Run detection
+        let preds = [];
+        try {
+          preds = await model.estimateFaces(els.video, false, mirror);
+        } catch (e) {
+          console.error(e);
+          setStatus("推理出现问题：" + e.message, false);
+        }
+        drawPredictions(preds, ctx, mirror, threshold);
+        rafId = requestAnimationFrame(loop);
+      }
+
+      async function start() {
+        try {
+          await startCamera();
+          await loadModel();
+          running = true;
+          lastTime = 0;
+          setStatus("运行中");
+          loop();
+        } catch (_) {
+          /* 已在各处处理 */
+        }
+      }
+
+      function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+        stopCamera();
+        const ctx = els.canvas.getContext("2d");
+        ctx.clearRect(0, 0, els.canvas.width, els.canvas.height);
+        setStatus("已停止", false);
+      }
+
+      // UI events
+      els.btnStart.addEventListener("click", start);
+      els.btnStop.addEventListener("click", stop);
+      els.mirror.addEventListener("change", () => {
+        // just update style in loop
+      });
+      els.facing.addEventListener("change", () => start());
+      els.threshold.addEventListener("input", () => {
+        els.thVal.textContent = parseFloat(els.threshold.value).toFixed(2);
+      });
+
+      // Handle resize
+      window.addEventListener("resize", resizeCanvasToVideo);
+
+      // Auto-start if permissions were previously granted
+      (async () => {
+        try {
+          const devices = await navigator.mediaDevices.enumerateDevices();
+          // If any videoinput exists, try start for convenience
+          if (devices.some((d) => d.kind === "videoinput")) start();
+        } catch (_) {}
+      })();
+    </script>
+  </body>
+</html>
