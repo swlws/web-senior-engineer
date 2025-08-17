@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>RRWeb Minimal Replay Demo</title>
+    <style>
+      iframe {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>RRWeb 最小回放 Demo</h2>
+    <iframe id="replay"></iframe>
+
+    <script>
+      // ===== 1. 模拟录制下来的事件流 =====
+      const events = [
+        {
+          type: "FullSnapshot",
+          timestamp: Date.now(),
+          data: {
+            node: {
+              id: 1,
+              type: "element",
+              tagName: "div",
+              attributes: { id: "app" },
+              childNodes: [
+                { id: 2, type: "text", textContent: "Hello RRWeb!" },
+                {
+                  id: 3,
+                  type: "element",
+                  tagName: "button",
+                  attributes: { id: "btn" },
+                  childNodes: [
+                    { id: 4, type: "text", textContent: "Click me" },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+        {
+          type: "MouseInteraction",
+          timestamp: Date.now() + 1000, // 1 秒后
+          data: { id: 3, event: "click" },
+        },
+      ];
+
+      // ===== 2. 初始化 iframe =====
+      const iframe = document.getElementById("replay");
+      const doc = iframe.contentDocument;
+      doc.open();
+      doc.write("<!DOCTYPE html><html><head></head><body></body></html>");
+      doc.close();
+
+      // ===== 3. 节点镜像表（虚拟 ID -> 真实节点） =====
+      const mirror = new Map();
+
+      function rebuildNode(snapshotNode, doc) {
+        let node;
+        if (snapshotNode.type === "element") {
+          node = doc.createElement(snapshotNode.tagName);
+          for (const [attr, val] of Object.entries(
+            snapshotNode.attributes || {}
+          )) {
+            node.setAttribute(attr, val);
+          }
+          (snapshotNode.childNodes || []).forEach((child) => {
+            node.appendChild(rebuildNode(child, doc));
+          });
+        } else if (snapshotNode.type === "text") {
+          node = doc.createTextNode(snapshotNode.textContent);
+        }
+        mirror.set(snapshotNode.id, node);
+        return node;
+      }
+
+      // ===== 4. 回放逻辑 =====
+      function applyEvent(event) {
+        if (event.type === "FullSnapshot") {
+          const rootNode = rebuildNode(event.data.node, doc);
+          doc.body.appendChild(rootNode);
+        } else if (event.type === "MouseInteraction") {
+          const target = mirror.get(event.data.id);
+          if (target) {
+            // 模拟点击
+            target.style.background = "yellow";
+            target.innerText = "Clicked!";
+          }
+        }
+      }
+
+      // ===== 5. 按时间顺序回放 =====
+      const baseTime = events[0].timestamp;
+      events.forEach((evt) => {
+        const delay = evt.timestamp - baseTime;
+        setTimeout(() => applyEvent(evt), delay);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mini HTML2IMG Demo</title>
+    <style>
+      #capture {
+        width: 200px;
+        padding: 20px;
+        border: 2px solid #4caf50;
+        background: #f0fff0;
+        font-family: Arial, sans-serif;
+      }
+      #result img {
+        border: 1px solid #ddd;
+        margin-top: 10px;
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>原始 DOM</h3>
+    <div id="capture">
+      <h4>Hello HTML → Image 🎨</h4>
+      <p style="color: green">这是一个测试段落。</p>
+    </div>
+
+    <button id="convertBtn">转为图片</button>
+
+    <h3>生成的图片</h3>
+    <div id="result"></div>
+
+    <!-- <script type="module" src="./main.js"></script> -->
+
+    <script>
+      /**
+       * 将 HTML 节点转为图片（基于 SVG + foreignObject）
+       * @param {HTMLElement} element - 需要转换的 DOM 节点
+       * @returns {Promise<HTMLImageElement>} - 生成的图片对象
+       */
+      async function htmlToImage(element) {
+        const { width, height } = element.getBoundingClientRect();
+
+        // 将 DOM 的 outerHTML 包装成 SVG foreignObject
+        const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+      <foreignObject width="100%" height="100%">
+        ${new XMLSerializer().serializeToString(element)}
+      </foreignObject>
+    </svg>
+  `;
+
+        // SVG 转 base64
+        const svgBlob = new Blob([svg], {
+          type: "image/svg+xml;charset=utf-8",
+        });
+        const svgUrl = URL.createObjectURL(svgBlob);
+
+        // 转为 Image
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => {
+            URL.revokeObjectURL(svgUrl);
+            resolve(img);
+          };
+          img.onerror = reject;
+          img.src = svgUrl;
+        });
+      }
+
+      document
+        .getElementById("convertBtn")
+        .addEventListener("click", async () => {
+          const target = document.getElementById("capture");
+          const img = await htmlToImage(target);
+
+          // 渲染到结果容器
+          const result = document.getElementById("result");
+          result.innerHTML = "";
+          result.appendChild(img);
+        });
+    </script>
+  </body>
+</html>
