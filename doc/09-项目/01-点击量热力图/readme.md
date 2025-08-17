@@ -50,6 +50,8 @@
 
 1. WebComponent 兼容处理。
    new XMLSerializer().serializeToString(Node) 无法获取 WebComponent 的内容。需要特殊处理为普通 DOM + scoped CSS
+2. 非标准标签。如`<ghttps></ghttps>`
+3. 未正常闭合的标签
 
 ### 绘制热力图
 
