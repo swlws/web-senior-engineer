@@ -37,7 +37,7 @@
 ### 1. 性能问题
 
 - ECharts 的 API setOption，配置做增量更新
-- ECHarts 的数据源添加 `__ec_private__` 字段，规避 ECharts 底层的 `deepClone`
+- ECHarts 的数据源添加 `__ec_primitive__` 字段，规避 ECharts 底层的 `deepClone`
 - 绘制的主流成中，仅在最后触发一次 `setOption`
 - 绘制图表
   - 高优先级。绘制 K 线图、量主图
