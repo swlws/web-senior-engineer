@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>最小富文本编辑器（每字一个 span）</title>
+    <style>
+      :root {
+        --editor-bg: #fff;
+        --editor-fg: #111;
+        --editor-border: #e5e7eb;
+        --accent: #3b82f6;
+      }
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          PingFang SC, Noto Sans CJK SC, Helvetica, Arial, 'Microsoft Yahei',
+          sans-serif;
+        margin: 0;
+        padding: 24px;
+        background: #f8fafc;
+        color: var(--editor-fg);
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 12px;
+      }
+      .hint {
+        color: #64748b;
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .btn {
+        padding: 6px 10px;
+        border-radius: 10px;
+        border: 1px solid var(--editor-border);
+        background: white;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .btn:hover {
+        border-color: #cbd5e1;
+      }
+
+      .editor {
+        position: relative;
+        min-height: 160px;
+        padding: 16px;
+        background: var(--editor-bg);
+        border: 1px solid var(--editor-border);
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        line-height: 1.6;
+        font-size: 16px;
+        outline: none;
+        white-space: pre-wrap;
+        cursor: text;
+      }
+
+      .line {
+        display: block;
+      }
+
+      .ch {
+        display: inline-block;
+        white-space: pre;
+      }
+
+      .ch.bold {
+        font-weight: 700;
+      }
+      .ch.italic {
+        font-style: italic;
+      }
+      .ch.underline {
+        text-decoration: underline;
+      }
+      .ch.highlight {
+        background: #fde68a;
+      }
+      .ch.code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          'Liberation Mono', 'Courier New', monospace;
+        background: #f1f5f9;
+        border-radius: 6px;
+        padding: 0 2px;
+      }
+
+      .caret {
+        position: absolute;
+        width: 1.5px;
+        height: 1.2em;
+        background: var(--accent);
+        animation: blink 1.1s steps(1) infinite;
+        pointer-events: none;
+      }
+      @keyframes blink {
+        0%,
+        45% {
+          opacity: 1;
+        }
+        46%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .ghost-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        width: 1px;
+        height: 1em;
+        font-size: 16px;
+        line-height: 1.6;
+        background: transparent;
+        color: transparent;
+      }
+
+      .empty-tip {
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>最小富文本（每字符独立 <code>span</code>，带自定义光标）</h1>
+      <p class="hint">
+        点击下方区域开始输入。支持：左右移动、Home/End、Backspace/Delete、粘贴、基础样式（粗斜下划线/高亮/等宽）。本示例为教学用最小实现。
+      </p>
+
+      <div class="toolbar">
+        <button class="btn" data-style="bold">粗体</button>
+        <button class="btn" data-style="italic">斜体</button>
+        <button class="btn" data-style="underline">下划线</button>
+        <button class="btn" data-style="highlight">高亮</button>
+        <button class="btn" data-style="code">等宽</button>
+        <button class="btn" id="btnClear">清空</button>
+      </div>
+
+      <div
+        id="editor"
+        class="editor"
+        tabindex="0"
+        role="textbox"
+        aria-multiline="true"
+      ></div>
+      <div id="caret" class="caret" aria-hidden="true"></div>
+      <input
+        id="ghost"
+        class="ghost-input"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </div>
+
+    <script>
+      (function () {
+        const editor = document.getElementById('editor');
+        const caret = document.getElementById('caret');
+        const ghost = document.getElementById('ghost');
+        const toolbar = document.querySelector('.toolbar');
+        const btnClear = document.getElementById('btnClear');
+
+        let content = [];
+        let cursor = 0;
+        let composing = false;
+
+        const isPrintable = (e) =>
+          e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey;
+
+        function ensureCursorBounds() {
+          if (cursor < 0) cursor = 0;
+          if (cursor > content.length) cursor = content.length;
+        }
+
+        function render() {
+          if (content.length === 0) {
+            editor.innerHTML =
+              '<span class="empty-tip">（空白，开始输入...）</span>';
+          } else {
+            const frag = document.createDocumentFragment();
+            for (let i = 0; i < content.length; i++) {
+              const { ch, classList } = content[i];
+              const s = document.createElement('span');
+              s.className =
+                'ch' +
+                (classList && classList.size
+                  ? ' ' + Array.from(classList).join(' ')
+                  : '');
+              s.dataset.idx = String(i);
+              s.textContent = ch;
+              frag.appendChild(s);
+            }
+            editor.replaceChildren(frag);
+          }
+          positionCaret();
+          placeGhostAtCaret();
+        }
+
+        function positionCaret() {
+          const rectEditor = editor.getBoundingClientRect();
+          const px = (x) => x + 'px';
+
+          if (content.length === 0 || cursor === 0) {
+            caret.style.left = px(rectEditor.left + 16);
+            caret.style.top = px(rectEditor.top + 16);
+            caret.style.height = getLineHeight() + 'px';
+            return;
+          }
+
+          const beforeIdx = cursor - 1;
+          const beforeEl = editor.querySelector(
+            '[data-idx="' + beforeIdx + '"]'
+          );
+          if (!beforeEl) {
+            caret.style.left = px(rectEditor.left + 16);
+            caret.style.top = px(rectEditor.top + 16);
+            caret.style.height = getLineHeight() + 'px';
+            return;
+          }
+          const r = beforeEl.getBoundingClientRect();
+          caret.style.left = px(r.right);
+          caret.style.top = px(r.top);
+          caret.style.height = px(r.height);
+        }
+
+        function getLineHeight() {
+          const tmp = document.createElement('span');
+          tmp.className = 'ch';
+          tmp.textContent = 'M';
+          editor.appendChild(tmp);
+          const h = tmp.getBoundingClientRect().height;
+          tmp.remove();
+          return h;
+        }
+
+        function placeGhostAtCaret() {
+          const cRect = caret.getBoundingClientRect();
+          ghost.style.left = cRect.left + 'px';
+          ghost.style.top = cRect.top + 'px';
+        }
+
+        function insertText(str) {
+          if (!str) return;
+          const units = Array.from(str);
+          for (const u of units) {
+            content.splice(cursor, 0, { ch: u, classList: new Set() });
+            cursor++;
+          }
+          render();
+        }
+
+        function deleteBackward() {
+          if (cursor === 0) return;
+          content.splice(cursor - 1, 1);
+          cursor--;
+          render();
+        }
+
+        function deleteForward() {
+          if (cursor >= content.length) return;
+          content.splice(cursor, 1);
+          render();
+        }
+
+        function moveLeft() {
+          cursor--;
+          ensureCursorBounds();
+          render();
+        }
+        function moveRight() {
+          cursor++;
+          ensureCursorBounds();
+          render();
+        }
+        function moveHome() {
+          cursor = 0;
+          render();
+        }
+        function moveEnd() {
+          cursor = content.length;
+          render();
+        }
+
+        editor.addEventListener('focus', () => {
+          ghost.focus();
+          placeGhostAtCaret();
+        });
+
+        // 使用事件代理，点击到 .ch 时在它后面，否则到最后
+        editor.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          const chEl = e.target.closest('.ch');
+          if (chEl && editor.contains(chEl)) {
+            const idx = parseInt(chEl.dataset.idx, 10);
+            cursor = idx + 1;
+          } else {
+            cursor = content.length;
+          }
+          ensureCursorBounds();
+          render();
+          ghost.focus();
+        });
+
+        toolbar.addEventListener('click', (e) => {
+          const btn = e.target.closest('.btn');
+          if (!btn) return;
+          const style = btn.dataset.style;
+          if (!style) {
+            return;
+          }
+          if (cursor === 0) return;
+          const idx = cursor - 1;
+          const set =
+            content[idx].classList || (content[idx].classList = new Set());
+          if (set.has(style)) set.delete(style);
+          else set.add(style);
+          render();
+        });
+        btnClear.addEventListener('click', () => {
+          content = [];
+          cursor = 0;
+          render();
+        });
+
+        ghost.addEventListener('keydown', (e) => {
+          if (composing) return;
+          switch (e.key) {
+            case 'ArrowLeft':
+              e.preventDefault();
+              moveLeft();
+              break;
+            case 'ArrowRight':
+              e.preventDefault();
+              moveRight();
+              break;
+            case 'Home':
+              e.preventDefault();
+              moveHome();
+              break;
+            case 'End':
+              e.preventDefault();
+              moveEnd();
+              break;
+            case 'Backspace':
+              e.preventDefault();
+              deleteBackward();
+              break;
+            case 'Delete':
+              e.preventDefault();
+              deleteForward();
+              break;
+            default:
+              if (isPrintable(e)) {
+                e.preventDefault();
+                insertText(e.key);
+              }
+          }
+        });
+
+        ghost.addEventListener('beforeinput', (e) => {
+          if (e.inputType === 'insertText' && typeof e.data === 'string') {
+            e.preventDefault();
+            insertText(e.data);
+          } else if (e.inputType === 'insertFromPaste') {
+            e.preventDefault();
+          } else if (e.inputType === 'deleteContentBackward') {
+            e.preventDefault();
+            deleteBackward();
+          } else if (e.inputType === 'deleteContentForward') {
+            e.preventDefault();
+            deleteForward();
+          }
+        });
+
+        ghost.addEventListener('compositionstart', () => {
+          composing = true;
+        });
+        ghost.addEventListener('compositionend', (e) => {
+          composing = false;
+          insertText(e.data || '');
+        });
+
+        editor.addEventListener('paste', (e) => {
+          e.preventDefault();
+          const text =
+            (e.clipboardData && e.clipboardData.getData('text/plain')) || '';
+          insertText(text.replace(/\r\n?|\n/g, ' '));
+        });
+
+        content = Array.from('Hello, 世界!').map((ch) => ({
+          ch,
+          classList: new Set(),
+        }));
+        cursor = content.length;
+        render();
+
+        window.addEventListener('resize', () => {
+          positionCaret();
+          placeGhostAtCaret();
+        });
+      })();
+    </script>
+  </body>
+</html>
