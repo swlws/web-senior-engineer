@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Input 光标 & 鼠标悬浮字符检测</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      #inp {
+        font-size: 16px;
+        width: 300px;
+        padding: 5px;
+      }
+      .out {
+        margin-top: 6px;
+        color: #333;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Input 示例</h3>
+    <input id="inp" value="hello world" />
+    <div id="out-key" class="out"></div>
+    <div id="out-hover" class="out"></div>
+
+    <script>
+      // 用 canvas 来测量文本宽度
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      /**
+       * 获取 input 中光标位置 & 字符
+       */
+      function getCursorInfo(input) {
+        const pos = input.selectionStart;
+        return {
+          index: pos,
+          char: input.value[pos] ?? null,
+        };
+      }
+
+      /**
+       * 获取鼠标悬浮位置的字符索引 & 内容
+       */
+      function getCharAtMouse(input, e) {
+        const style = window.getComputedStyle(input);
+        const font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+        ctx.font = font;
+
+        const text = input.value;
+        const paddingLeft = parseFloat(style.paddingLeft);
+        const rect = input.getBoundingClientRect();
+        const x = e.clientX - rect.left - paddingLeft;
+
+        // 遍历字符宽度，找落点
+        let total = 0;
+        for (let i = 0; i < text.length; i++) {
+          const w = ctx.measureText(text[i]).width;
+          if (x < total + w) {
+            return { index: i, char: text[i] };
+          }
+          total += w;
+        }
+        return { index: text.length, char: null }; // 鼠标在最后
+      }
+
+      // 绑定事件
+      const inp = document.getElementById('inp');
+      const outKey = document.getElementById('out-key');
+      const outHover = document.getElementById('out-hover');
+
+      // 键盘/输入时
+      ['keyup', 'keydown', 'input', 'click'].forEach((ev) => {
+        inp.addEventListener(ev, () => {
+          const info = getCursorInfo(inp);
+          outKey.innerText = `【键盘/点击】索引: ${info.index}, 字符: ${info.char}`;
+        });
+      });
+
+      // 鼠标悬浮时
+      inp.addEventListener('mousemove', (e) => {
+        const info = getCharAtMouse(inp, e);
+        outHover.innerText = `【悬浮】索引: ${info.index}, 字符: ${info.char}`;
+      });
+    </script>
+  </body>
+</html>
