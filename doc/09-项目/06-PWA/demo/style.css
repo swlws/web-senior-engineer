@@ -1,0 +1,8 @@
+:root { color-scheme: light dark; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; }
+main { max-width: 780px; margin: 40px auto; padding: 0 16px; }
+h1 { color: #0ea5e9; }
+.card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; margin: 16px 0; }
+button { padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1; cursor: pointer; }
+.hint { color: #64748b; font-size: .9em; }
+pre { white-space: pre-wrap; background: #0b1020; color: #e2e8f0; padding: 12px; border-radius: 8px; }
