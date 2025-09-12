@@ -29,7 +29,12 @@ export default {
   setup() {
     const state = reactive({ label: 'Click Me' });
 
-    return () => <DebugButton {...state} />;
+    return () => (
+      <DebugInput
+        modelValue={state.value}
+        onUpdate:modelValue={(val) => (state.value = val)}
+      />
+    );
   },
 };
 ```
