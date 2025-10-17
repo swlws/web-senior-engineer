@@ -6,9 +6,9 @@
 
 原理
 
-- 在子应用挂载时，qiankun 会遍历子应用的 <style> 或 <link> 标签里的 CSS 内容。
+- 在子应用挂载时，qiankun 会遍历子应用的 `<style>` 或 `<link>` 标签里的 CSS 内容。
 - 对 CSS 选择器进行前缀重写，将原本全局的选择器限定到子应用容器内。
-- 例如，子应用容器为 <div id="subapp-container">：
+- 例如，子应用容器为 `<div id="subapp-container">`：
 
 ```css
 /* 原始子应用 CSS */
@@ -82,7 +82,7 @@ shadowRoot.appendChild(style);
 - 对于 Shadow DOM 有需求的项目，可以手动启用
 - 核心逻辑：
   1. 获取子应用容器 container
-  2. 对子应用所有 <style>/<link> 进行选择器前缀处理
+  2. 对子应用所有 `<style>/<link>` 进行选择器前缀处理
   3. 将 CSS 注入主应用的 DOM 中，但加上前缀确保隔离
   4. 子应用卸载时，删除注入的 CSS
 
