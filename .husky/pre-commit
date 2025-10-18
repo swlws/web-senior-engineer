@@ -1,6 +1,3 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
 npm run dir || exit 1  
 
 git add doc/README.md
