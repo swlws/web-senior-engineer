@@ -77,6 +77,7 @@
     - [12-Computed-Vue2.md](03-框架与工程化/Vue/12-Computed-Vue2.md)
     - [13-双向绑定-Vue2.md](03-框架与工程化/Vue/13-双向绑定-Vue2.md)
     - [14-Computed实现- Vue2.md](03-框架与工程化/Vue/14-Computed实现-%20Vue2.md)
+    - [15-Vue3解决了Vue2的哪些问题.md](03-框架与工程化/Vue/15-Vue3解决了Vue2的哪些问题.md)
   - webpack
     - [01-简述.md](03-框架与工程化/webpack/01-简述.md)
     - [02-构建流程.md](03-框架与工程化/webpack/02-构建流程.md)
