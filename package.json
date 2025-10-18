@@ -1,0 +1,19 @@
+{
+  "name": "web-senior-engineer",
+  "version": "1.0.0",
+  "description": "Web senior engineer",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "dir": "node script/dir-doc.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
