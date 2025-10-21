@@ -29,11 +29,15 @@
   - [08-JSONP通信方式.md](02-浏览器/08-JSONP通信方式.md)
 - 03-框架
   - [.DS_Store](03-框架/.DS_Store)
+  - G6
+    - [reade.md](03-框架/G6/reade.md)
   - Npm
     - [001-install过程.md](03-框架/Npm/001-install过程.md)
     - [002-第三库中的devDependencies.md](03-框架/Npm/002-第三库中的devDependencies.md)
     - [003-字段main与module.md](03-框架/Npm/003-字段main与module.md)
     - [004-字段exports.md](03-框架/Npm/004-字段exports.md)
+  - Pinia
+    - [reade.md](03-框架/Pinia/reade.md)
   - React
     - [01-ReactFiber.md](03-框架/React/01-ReactFiber.md)
     - [02-FiberTree.md](03-框架/React/02-FiberTree.md)
@@ -64,6 +68,8 @@
     - [27-useDeferredValue优化.md](03-框架/React/27-useDeferredValue优化.md)
     - [28-useMemo.md](03-框架/React/28-useMemo.md)
     - [readme.md](03-框架/React/readme.md)
+  - Redux
+    - [reade.md](03-框架/Redux/reade.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
     - [02-响应式-Vue2.md](03-框架/Vue/02-响应式-Vue2.md)
