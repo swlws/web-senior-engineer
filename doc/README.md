@@ -29,6 +29,11 @@
   - [08-JSONP通信方式.md](02-浏览器/08-JSONP通信方式.md)
 - 03-框架
   - [.DS_Store](03-框架/.DS_Store)
+  - Npm
+    - [001-install过程.md](03-框架/Npm/001-install过程.md)
+    - [002-第三库中的devDependencies.md](03-框架/Npm/002-第三库中的devDependencies.md)
+    - [003-字段main与module.md](03-框架/Npm/003-字段main与module.md)
+    - [004-字段exports.md](03-框架/Npm/004-字段exports.md)
   - React
     - [01-ReactFiber.md](03-框架/React/01-ReactFiber.md)
     - [02-FiberTree.md](03-框架/React/02-FiberTree.md)
@@ -82,11 +87,6 @@
     - [04-构建时长优化.md](03-框架/Webpack/04-构建时长优化.md)
     - [05-TreeShaking原理.md](03-框架/Webpack/05-TreeShaking原理.md)
     - [readme.md](03-框架/Webpack/readme.md)
-  - npm01
-    - [001-install过程.md](03-框架/npm01/001-install过程.md)
-    - [002-第三库中的devDependencies.md](03-框架/npm01/002-第三库中的devDependencies.md)
-    - [003-字段main与module.md](03-框架/npm01/003-字段main与module.md)
-    - [004-字段exports.md](03-框架/npm01/004-字段exports.md)
   - 状态
     - [01-Flux思想.md](03-框架/状态/01-Flux思想.md)
 - 04-性能优化
