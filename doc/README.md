@@ -26,6 +26,7 @@
   - [06-跨域资源共享CORS.md](02-浏览器/06-跨域资源共享CORS.md)
   - [07-postMessage通信方式.md](02-浏览器/07-postMessage通信方式.md)
   - [08-JSONP通信方式.md](02-浏览器/08-JSONP通信方式.md)
+  - [09-断点调试.md](02-浏览器/09-断点调试.md)
 - 03-框架
   - G6
     - [reade.md](03-框架/G6/reade.md)
