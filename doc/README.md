@@ -165,7 +165,14 @@
   - [03-CommonJS模块加载机制.md](09-Node.js/03-CommonJS模块加载机制.md)
   - [04-模块循环引用.md](09-Node.js/04-模块循环引用.md)
   - [10-接口高并发场景.md](09-Node.js/10-接口高并发场景.md)
-- [10-代码托管](10-代码托管)
+- 10-代码托管
+  - git
+    - [01-fetch与pull.md](10-代码托管/git/01-fetch与pull.md)
+    - [02-merge与rebase.md](10-代码托管/git/02-merge与rebase.md)
+    - [03-reset与revert.md](10-代码托管/git/03-reset与revert.md)
+    - [04-删除某次普通commit.md](10-代码托管/git/04-删除某次普通commit.md)
+    - [05-删除某次merge-commit.md](10-代码托管/git/05-删除某次merge-commit.md)
+  - [readme.md](10-代码托管/readme.md)
 - 11-项目
   - 01-点击量热力图
     - [01-pico.md](11-项目/01-点击量热力图/01-pico.md)
