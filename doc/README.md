@@ -1,5 +1,6 @@
 # 目录结构
 
+- [.DS_Store](.DS_Store)
 - 01-JS
   - [01-变量声明.md](01-JS/01-变量声明.md)
   - [02-防抖和节流.md](01-JS/02-防抖和节流.md)
@@ -29,6 +30,7 @@
   - [08-JSONP通信方式.md](02-浏览器/08-JSONP通信方式.md)
   - [09-断点调试.md](02-浏览器/09-断点调试.md)
 - 03-框架
+  - [.DS_Store](03-框架/.DS_Store)
   - G6
     - [reade.md](03-框架/G6/reade.md)
   - Npm
@@ -152,13 +154,9 @@
   - [13-数字签名.md](06-网络与安全/13-数字签名.md)
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
-- 06-项目设计与系统能力
-  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
-  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
-- [07-软实力与业务理解](07-软实力与业务理解)
 - 08-设计模式
   - [01-观察者与发布订阅.md](08-设计模式/01-观察者与发布订阅.md)
   - [02-发布订阅.md](08-设计模式/02-发布订阅.md)
@@ -178,48 +176,56 @@
   - [03-CommonJS模块加载机制.md](09-Node.js/03-CommonJS模块加载机制.md)
   - [04-模块循环引用.md](09-Node.js/04-模块循环引用.md)
   - [10-接口高并发场景.md](09-Node.js/10-接口高并发场景.md)
-- 10-项目
+- 10-代码托管
+  - git
+    - [01-fetch与pull.md](10-代码托管/git/01-fetch与pull.md)
+    - [02-merge与rebase.md](10-代码托管/git/02-merge与rebase.md)
+    - [03-reset与revert.md](10-代码托管/git/03-reset与revert.md)
+    - [04-删除某次普通commit.md](10-代码托管/git/04-删除某次普通commit.md)
+    - [05-删除某次merge-commit.md](10-代码托管/git/05-删除某次merge-commit.md)
+  - [readme.md](10-代码托管/readme.md)
+- 11-项目
   - 01-点击量热力图
-    - [01-pico.md](10-项目/01-点击量热力图/01-pico.md)
-    - [02-SVG+foreignObject生成图片时如何做到样式隔离.md](10-项目/01-点击量热力图/02-SVG+foreignObject生成图片时如何做到样式隔离.md)
+    - [01-pico.md](11-项目/01-点击量热力图/01-pico.md)
+    - [02-SVG+foreignObject生成图片时如何做到样式隔离.md](11-项目/01-点击量热力图/02-SVG+foreignObject生成图片时如何做到样式隔离.md)
     - demo
-      - [min-html-to-img.html](10-项目/01-点击量热力图/demo/min-html-to-img.html)
-    - [readme.md](10-项目/01-点击量热力图/readme.md)
-  - [01-部分用户实时数据不更新.md](10-项目/01-部分用户实时数据不更新.md)
+      - [min-html-to-img.html](11-项目/01-点击量热力图/demo/min-html-to-img.html)
+    - [readme.md](11-项目/01-点击量热力图/readme.md)
+  - [01-部分用户实时数据不更新.md](11-项目/01-部分用户实时数据不更新.md)
   - 02-无感录屏
-    - [01-RRWeb原理.md](10-项目/02-无感录屏/01-RRWeb原理.md)
-    - [02-如何捕获CSSOM变化.md](10-项目/02-无感录屏/02-如何捕获CSSOM变化.md)
-    - [03-基于iframe的回放原理.md](10-项目/02-无感录屏/03-基于iframe的回放原理.md)
+    - [01-RRWeb原理.md](11-项目/02-无感录屏/01-RRWeb原理.md)
+    - [02-如何捕获CSSOM变化.md](11-项目/02-无感录屏/02-如何捕获CSSOM变化.md)
+    - [03-基于iframe的回放原理.md](11-项目/02-无感录屏/03-基于iframe的回放原理.md)
     - demo
-      - [iframe-player.html](10-项目/02-无感录屏/demo/iframe-player.html)
-    - [reame.md](10-项目/02-无感录屏/reame.md)
+      - [iframe-player.html](11-项目/02-无感录屏/demo/iframe-player.html)
+    - [reame.md](11-项目/02-无感录屏/reame.md)
   - 03-K线图
-    - [readme.md](10-项目/03-K线图/readme.md)
+    - [readme.md](11-项目/03-K线图/readme.md)
   - 04-光标位置
     - demo
-      - [index.html](10-项目/04-光标位置/demo/index.html)
-    - [readme.md](10-项目/04-光标位置/readme.md)
+      - [index.html](11-项目/04-光标位置/demo/index.html)
+    - [readme.md](11-项目/04-光标位置/readme.md)
   - 05-富文本编辑器
     - demo
-      - [index.html](10-项目/05-富文本编辑器/demo/index.html)
-    - [readme.md](10-项目/05-富文本编辑器/readme.md)
+      - [index.html](11-项目/05-富文本编辑器/demo/index.html)
+    - [readme.md](11-项目/05-富文本编辑器/readme.md)
   - 06-PWA
     - demo
-      - [app.js](10-项目/06-PWA/demo/app.js)
-      - [index.html](10-项目/06-PWA/demo/index.html)
-      - [manifest.webmanifest](10-项目/06-PWA/demo/manifest.webmanifest)
-      - [readme.md](10-项目/06-PWA/demo/readme.md)
-      - [style.css](10-项目/06-PWA/demo/style.css)
-      - [sw.js](10-项目/06-PWA/demo/sw.js)
-    - [readme.md](10-项目/06-PWA/readme.md)
-  - [readme.md](10-项目/readme.md)
-- 11-AI
-  - [readme.md](11-AI/readme.md)
+      - [app.js](11-项目/06-PWA/demo/app.js)
+      - [index.html](11-项目/06-PWA/demo/index.html)
+      - [manifest.webmanifest](11-项目/06-PWA/demo/manifest.webmanifest)
+      - [readme.md](11-项目/06-PWA/demo/readme.md)
+      - [style.css](11-项目/06-PWA/demo/style.css)
+      - [sw.js](11-项目/06-PWA/demo/sw.js)
+    - [readme.md](11-项目/06-PWA/readme.md)
+  - [readme.md](11-项目/readme.md)
+- 12-AI
   - _demo
-    - [01-face-detach.html](11-AI/_demo/01-face-detach.html)
-- 12-团队
-  - [01-团队技术选型.md](12-团队/01-团队技术选型.md)
-  - [05-如何确保类似的故障不再发生.md](12-团队/05-如何确保类似的故障不再发生.md)
-- 13-其他
-  - [01-销售.md](13-其他/01-销售.md)
+    - [01-face-detach.html](12-AI/_demo/01-face-detach.html)
+  - [readme.md](12-AI/readme.md)
+- 13-团队
+  - [01-团队技术选型.md](13-团队/01-团队技术选型.md)
+  - [05-如何确保类似的故障不再发生.md](13-团队/05-如何确保类似的故障不再发生.md)
+- 14-其他
+  - [01-销售.md](14-其他/01-销售.md)
 - [README.md](README.md)
