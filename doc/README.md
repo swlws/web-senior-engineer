@@ -154,6 +154,7 @@
   - [13-数字签名.md](06-网络与安全/13-数字签名.md)
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
+  - [16-Cookie+HttpOnly与localStorage.md](06-网络与安全/16-Cookie+HttpOnly与localStorage.md)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
@@ -229,6 +230,8 @@
 - 14-工具
   - indexDB
     - [index.md](14-工具/indexDB/index.md)
+  - promise
+    - [index.md](14-工具/promise/index.md)
 - 15-其他
   - [01-销售.md](15-其他/01-销售.md)
 - [README.md](README.md)
