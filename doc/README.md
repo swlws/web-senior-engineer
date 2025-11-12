@@ -33,6 +33,8 @@
   - [.DS_Store](03-框架/.DS_Store)
   - G6
     - [reade.md](03-框架/G6/reade.md)
+  - Lit
+    - [readme.md](03-框架/Lit/readme.md)
   - Npm
     - [001-install过程.md](03-框架/Npm/001-install过程.md)
     - [002-第三库中的devDependencies.md](03-框架/Npm/002-第三库中的devDependencies.md)
@@ -78,6 +80,10 @@
   - SVG
     - [Path语法.md](03-框架/SVG/Path语法.md)
     - [readme.md](03-框架/SVG/readme.md)
+  - Solid.js
+    - [readme.md](03-框架/Solid.js/readme.md)
+  - Svelte
+    - [readme.md](03-框架/Svelte/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
     - [02-响应式-Vue2.md](03-框架/Vue/02-响应式-Vue2.md)
