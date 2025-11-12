@@ -69,6 +69,9 @@
     - [26-startTransition优化.md](03-框架/React/26-startTransition优化.md)
     - [27-useDeferredValue优化.md](03-框架/React/27-useDeferredValue优化.md)
     - [28-useMemo.md](03-框架/React/28-useMemo.md)
+    - [29- React中的闭包陷阱.md](03-框架/React/29-%20React中的闭包陷阱.md)
+    - [30-useEvent.md](03-框架/React/30-useEvent.md)
+    - [31-useEvent速查表.md](03-框架/React/31-useEvent速查表.md)
     - [readme.md](03-框架/React/readme.md)
   - Redux
     - [reade.md](03-框架/Redux/reade.md)
