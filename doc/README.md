@@ -1,6 +1,5 @@
 # 目录结构
 
-- [.DS_Store](.DS_Store)
 - 01-JS
   - [01-变量声明.md](01-JS/01-变量声明.md)
   - [02-防抖和节流.md](01-JS/02-防抖和节流.md)
@@ -30,7 +29,6 @@
   - [08-JSONP通信方式.md](02-浏览器/08-JSONP通信方式.md)
   - [09-断点调试.md](02-浏览器/09-断点调试.md)
 - 03-框架
-  - [.DS_Store](03-框架/.DS_Store)
   - G6
     - [reade.md](03-框架/G6/reade.md)
   - Lit
@@ -164,6 +162,9 @@
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
   - [16-Cookie+HttpOnly与localStorage.md](06-网络与安全/16-Cookie+HttpOnly与localStorage.md)
+- 06-项目设计与系统能力
+  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
+  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
@@ -230,9 +231,9 @@
     - [readme.md](11-项目/06-PWA/readme.md)
   - [readme.md](11-项目/readme.md)
 - 12-AI
+  - [readme.md](12-AI/readme.md)
   - _demo
     - [01-face-detach.html](12-AI/_demo/01-face-detach.html)
-  - [readme.md](12-AI/readme.md)
 - 13-团队
   - [01-团队技术选型.md](13-团队/01-团队技术选型.md)
   - [05-如何确保类似的故障不再发生.md](13-团队/05-如何确保类似的故障不再发生.md)
