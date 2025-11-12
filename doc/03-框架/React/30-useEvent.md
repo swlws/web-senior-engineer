@@ -79,7 +79,7 @@ React 内部对 useEvent 的实现类似：
 ```jsx
 function useEvent(handler) {
   const handlerRef = useRef(handler);
-  handlerRef.current = handler;
+  handlerRef.current = handler; // // 重点：每次 render 都更新 ref.current
 
   const stableFn = useCallback((...args) => {
     return handlerRef.current(...args);
@@ -164,7 +164,7 @@ function useEvent(fn) {
   const ref = useRef(fn);
   useEffect(() => {
     ref.current = fn;
-  });
+  }); // 重点：每次 render 都更新 ref.current
   return useCallback((...args) => ref.current(...args), []);
 }
 ```

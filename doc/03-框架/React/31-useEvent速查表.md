@@ -144,7 +144,7 @@ function useEvent(callback) {
   const ref = useRef(callback);
   useEffect(() => {
     ref.current = callback;
-  });
+  }); // 重点：每次 render 都更新 ref.current
   return useCallback((...args) => ref.current(...args), []);
 }
 ```
@@ -183,7 +183,7 @@ export function useStableEvent(fn) {
   const ref = useRef(fn);
   useEffect(() => {
     ref.current = fn;
-  });
+  }); // 重点：每次 render 都更新 ref.current
   return useCallback((...args) => ref.current(...args), []);
 }
 ```
