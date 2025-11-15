@@ -248,6 +248,7 @@
   - indexDB
     - [index.md](14-工具/indexDB/index.md)
   - promise
+    - [01-手写实现.md](14-工具/promise/01-手写实现.md)
     - [index.md](14-工具/promise/index.md)
   - rsa
     - [index.md](14-工具/rsa/index.md)
