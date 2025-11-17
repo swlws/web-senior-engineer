@@ -22,6 +22,8 @@
   - [15-AsyncAwait是如何通过同步的方式实现异步.md](01-JS/15-AsyncAwait是如何通过同步的方式实现异步.md)
   - [16-HashMap.md](01-JS/16-HashMap.md)
   - [readme.md](01-JS/readme.md)
+  - _code
+    - [readme.md](01-JS/_code/readme.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -109,6 +111,8 @@
     - [13-双向绑定-Vue2.md](03-框架/Vue/13-双向绑定-Vue2.md)
     - [14-Computed实现- Vue2.md](03-框架/Vue/14-Computed实现-%20Vue2.md)
     - [15-Vue3解决了Vue2的哪些问题.md](03-框架/Vue/15-Vue3解决了Vue2的哪些问题.md)
+    - [16-Vue2实例初始化过程.md](03-框架/Vue/16-Vue2实例初始化过程.md)
+    - [17-Vue2的nextTick.md](03-框架/Vue/17-Vue2的nextTick.md)
   - Webpack
     - [01-简述.md](03-框架/Webpack/01-简述.md)
     - [02-构建流程.md](03-框架/Webpack/02-构建流程.md)
@@ -123,6 +127,11 @@
   - [02-首屏优化-VueReact.md](04-性能优化/02-首屏优化-VueReact.md)
   - [03-性能指标.md](04-性能优化/03-性能指标.md)
 - 05-架构设计
+  - 00-架构设计原则
+    - [01-前端工程化.md](05-架构设计/00-架构设计原则/01-前端工程化.md)
+    - [02-从零搭建的工程.md](05-架构设计/00-架构设计原则/02-从零搭建的工程.md)
+    - [03-组件设计原则.md](05-架构设计/00-架构设计原则/03-组件设计原则.md)
+    - [readme.md](05-架构设计/00-架构设计原则/readme.md)
   - 01-大任务切片+优先级调度
     - [demo.html](05-架构设计/01-大任务切片+优先级调度/demo.html)
     - [performance.png](05-架构设计/01-大任务切片+优先级调度/performance.png)

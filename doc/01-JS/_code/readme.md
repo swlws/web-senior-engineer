@@ -1,0 +1,29 @@
+# Code
+
+## this 问题
+
+### 001
+
+```js
+var x = 3,
+  obj = { x: 5 };
+obj.fn = (function () {
+  this.x *= ++x;
+  return function (y) {
+    this.x = ++x + y;
+    console.log(x);
+  };
+})();
+var fn = obj.fn;
+obj.fn(6);
+fn(4);
+console.log(obj.x, x);
+```
+
+输出：
+
+```bash
+13
+18
+19 18
+```
