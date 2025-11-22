@@ -99,6 +99,7 @@
     - [readme.md](03-框架/SVG/readme.md)
   - Vite
     - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
+    - [02-Vite构建流程.md](03-框架/Vite/02-Vite构建流程.md)
     - [readme.md](03-框架/Vite/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
