@@ -1,6 +1,5 @@
 # 目录结构
 
-- [.DS_Store](.DS_Store)
 - 01-CSS
   - [01-块级格式化上下文.md](01-CSS/01-块级格式化上下文.md)
   - [02-表单元素宽度自适应.md](01-CSS/02-表单元素宽度自适应.md)
@@ -24,9 +23,9 @@
   - [16-HashMap.md](01-JS/16-HashMap.md)
   - [17-WebComponen中有限隔离的JS上下文.md](01-JS/17-WebComponen中有限隔离的JS上下文.md)
   - [18-为什么WebComponent不做JS沙箱的设计.md](01-JS/18-为什么WebComponent不做JS沙箱的设计.md)
+  - [readme.md](01-JS/readme.md)
   - _code
     - [readme.md](01-JS/_code/readme.md)
-  - [readme.md](01-JS/readme.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -45,7 +44,6 @@
   - [15-作用域.md](02-浏览器/15-作用域.md)
   - [16-JS闭包的逃逸分析与优化.md](02-浏览器/16-JS闭包的逃逸分析与优化.md)
 - 03-框架
-  - [.DS_Store](03-框架/.DS_Store)
   - G6
     - [reade.md](03-框架/G6/reade.md)
   - Lit
@@ -92,13 +90,16 @@
     - [readme.md](03-框架/React/readme.md)
   - Redux
     - [reade.md](03-框架/Redux/reade.md)
-  - SVG
-    - [Path语法.md](03-框架/SVG/Path语法.md)
-    - [readme.md](03-框架/SVG/readme.md)
   - Solid.js
     - [readme.md](03-框架/Solid.js/readme.md)
   - Svelte
     - [readme.md](03-框架/Svelte/readme.md)
+  - SVG
+    - [Path语法.md](03-框架/SVG/Path语法.md)
+    - [readme.md](03-框架/SVG/readme.md)
+  - Vite
+    - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
+    - [readme.md](03-框架/Vite/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
     - [02-响应式-Vue2.md](03-框架/Vue/02-响应式-Vue2.md)
@@ -190,6 +191,9 @@
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
   - [16-Cookie+HttpOnly与localStorage.md](06-网络与安全/16-Cookie+HttpOnly与localStorage.md)
+- 06-项目设计与系统能力
+  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
+  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
@@ -256,9 +260,9 @@
     - [readme.md](11-项目/06-PWA/readme.md)
   - [readme.md](11-项目/readme.md)
 - 12-AI
+  - [readme.md](12-AI/readme.md)
   - _demo
     - [01-face-detach.html](12-AI/_demo/01-face-detach.html)
-  - [readme.md](12-AI/readme.md)
 - 13-团队
   - [01-团队技术选型.md](13-团队/01-团队技术选型.md)
   - [05-如何确保类似的故障不再发生.md](13-团队/05-如何确保类似的故障不再发生.md)
