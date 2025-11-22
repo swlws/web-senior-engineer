@@ -121,6 +121,7 @@
     - [05-TreeShaking原理.md](03-框架/Webpack/05-TreeShaking原理.md)
     - [06-External与DLL.md](03-框架/Webpack/06-External与DLL.md)
     - [07-SplitChunks.md](03-框架/Webpack/07-SplitChunks.md)
+    - [08-替换全局字符串.md](03-框架/Webpack/08-替换全局字符串.md)
     - [readme.md](03-框架/Webpack/readme.md)
   - 状态
     - [01-Flux思想.md](03-框架/状态/01-Flux思想.md)
