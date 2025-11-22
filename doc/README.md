@@ -119,6 +119,8 @@
     - [03-模块联邦.md](03-框架/Webpack/03-模块联邦.md)
     - [04-构建时长优化.md](03-框架/Webpack/04-构建时长优化.md)
     - [05-TreeShaking原理.md](03-框架/Webpack/05-TreeShaking原理.md)
+    - [06-External与DLL.md](03-框架/Webpack/06-External与DLL.md)
+    - [07-SplitChunks.md](03-框架/Webpack/07-SplitChunks.md)
     - [readme.md](03-框架/Webpack/readme.md)
   - 状态
     - [01-Flux思想.md](03-框架/状态/01-Flux思想.md)
