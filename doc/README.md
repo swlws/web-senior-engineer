@@ -101,6 +101,8 @@
     - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
     - [02-Vite构建流程.md](03-框架/Vite/02-Vite构建流程.md)
     - [03-Vite中插件的能力.md](03-框架/Vite/03-Vite中插件的能力.md)
+    - [04-Vite与Webpack中loader与plugin能力对比.md](03-框架/Vite/04-Vite与Webpack中loader与plugin能力对比.md)
+    - [05-Vite与Webpack的核心差异.md](03-框架/Vite/05-Vite与Webpack的核心差异.md)
     - [readme.md](03-框架/Vite/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
