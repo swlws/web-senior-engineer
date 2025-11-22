@@ -100,6 +100,7 @@
   - Vite
     - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
     - [02-Vite构建流程.md](03-框架/Vite/02-Vite构建流程.md)
+    - [03-Vite中插件的能力.md](03-框架/Vite/03-Vite中插件的能力.md)
     - [readme.md](03-框架/Vite/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
