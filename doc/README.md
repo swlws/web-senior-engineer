@@ -60,6 +60,7 @@
   - Pinia
     - [reade.md](03-框架/Pinia/reade.md)
   - pm2
+    - [01-PM2的负载均衡.md](03-框架/pm2/01-PM2的负载均衡.md)
     - [readme.md](03-框架/pm2/readme.md)
   - React
     - [01-ReactFiber.md](03-框架/React/01-ReactFiber.md)
