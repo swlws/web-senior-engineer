@@ -1,6 +1,5 @@
 # 目录结构
 
-- [.DS_Store](.DS_Store)
 - 01-CSS
   - [01-块级格式化上下文.md](01-CSS/01-块级格式化上下文.md)
   - [02-表单元素宽度自适应.md](01-CSS/02-表单元素宽度自适应.md)
@@ -24,9 +23,9 @@
   - [16-HashMap.md](01-JS/16-HashMap.md)
   - [17-WebComponen中有限隔离的JS上下文.md](01-JS/17-WebComponen中有限隔离的JS上下文.md)
   - [18-为什么WebComponent不做JS沙箱的设计.md](01-JS/18-为什么WebComponent不做JS沙箱的设计.md)
+  - [readme.md](01-JS/readme.md)
   - _code
     - [readme.md](01-JS/_code/readme.md)
-  - [readme.md](01-JS/readme.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -41,11 +40,12 @@
   - [11-JS执行与DOM渲染.md](02-浏览器/11-JS执行与DOM渲染.md)
   - [12-JS代码编译与执行.md](02-浏览器/12-JS代码编译与执行.md)
   - [13-字节码.md](02-浏览器/13-字节码.md)
-  - [14-JS执行上下文.md](02-浏览器/14-JS执行上下文.md)
-  - [15-作用域.md](02-浏览器/15-作用域.md)
-  - [16-JS闭包的逃逸分析与优化.md](02-浏览器/16-JS闭包的逃逸分析与优化.md)
+  - [14-Eval为什么执行慢.md](02-浏览器/14-Eval为什么执行慢.md)
+  - [14-Eval的安全性.md](02-浏览器/14-Eval的安全性.md)
+  - [15-JS执行上下文.md](02-浏览器/15-JS执行上下文.md)
+  - [16-作用域.md](02-浏览器/16-作用域.md)
+  - [17-JS闭包的逃逸分析与优化.md](02-浏览器/17-JS闭包的逃逸分析与优化.md)
 - 03-框架
-  - [.DS_Store](03-框架/.DS_Store)
   - G6
     - [reade.md](03-框架/G6/reade.md)
   - Lit
@@ -92,13 +92,20 @@
     - [readme.md](03-框架/React/readme.md)
   - Redux
     - [reade.md](03-框架/Redux/reade.md)
-  - SVG
-    - [Path语法.md](03-框架/SVG/Path语法.md)
-    - [readme.md](03-框架/SVG/readme.md)
   - Solid.js
     - [readme.md](03-框架/Solid.js/readme.md)
   - Svelte
     - [readme.md](03-框架/Svelte/readme.md)
+  - SVG
+    - [Path语法.md](03-框架/SVG/Path语法.md)
+    - [readme.md](03-框架/SVG/readme.md)
+  - Vite
+    - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
+    - [02-Vite构建流程.md](03-框架/Vite/02-Vite构建流程.md)
+    - [03-Vite中插件的能力.md](03-框架/Vite/03-Vite中插件的能力.md)
+    - [04-Vite与Webpack中loader与plugin能力对比.md](03-框架/Vite/04-Vite与Webpack中loader与plugin能力对比.md)
+    - [05-Vite与Webpack的核心差异.md](03-框架/Vite/05-Vite与Webpack的核心差异.md)
+    - [readme.md](03-框架/Vite/readme.md)
   - Vue
     - [01-大版本差异.md](03-框架/Vue/01-大版本差异.md)
     - [02-响应式-Vue2.md](03-框架/Vue/02-响应式-Vue2.md)
@@ -117,12 +124,16 @@
     - [15-Vue3解决了Vue2的哪些问题.md](03-框架/Vue/15-Vue3解决了Vue2的哪些问题.md)
     - [16-Vue2实例初始化过程.md](03-框架/Vue/16-Vue2实例初始化过程.md)
     - [17-Vue2的nextTick.md](03-框架/Vue/17-Vue2的nextTick.md)
+    - [18-Vue中高阶组件实现.md](03-框架/Vue/18-Vue中高阶组件实现.md)
   - Webpack
     - [01-简述.md](03-框架/Webpack/01-简述.md)
     - [02-构建流程.md](03-框架/Webpack/02-构建流程.md)
     - [03-模块联邦.md](03-框架/Webpack/03-模块联邦.md)
     - [04-构建时长优化.md](03-框架/Webpack/04-构建时长优化.md)
     - [05-TreeShaking原理.md](03-框架/Webpack/05-TreeShaking原理.md)
+    - [06-External与DLL.md](03-框架/Webpack/06-External与DLL.md)
+    - [07-SplitChunks.md](03-框架/Webpack/07-SplitChunks.md)
+    - [08-替换全局字符串.md](03-框架/Webpack/08-替换全局字符串.md)
     - [readme.md](03-框架/Webpack/readme.md)
   - 状态
     - [01-Flux思想.md](03-框架/状态/01-Flux思想.md)
@@ -187,6 +198,9 @@
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
   - [16-Cookie+HttpOnly与localStorage.md](06-网络与安全/16-Cookie+HttpOnly与localStorage.md)
+- 06-项目设计与系统能力
+  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
+  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
@@ -253,20 +267,26 @@
     - [readme.md](11-项目/06-PWA/readme.md)
   - [readme.md](11-项目/readme.md)
 - 12-AI
+  - [readme.md](12-AI/readme.md)
   - _demo
     - [01-face-detach.html](12-AI/_demo/01-face-detach.html)
-  - [readme.md](12-AI/readme.md)
 - 13-团队
   - [01-团队技术选型.md](13-团队/01-团队技术选型.md)
   - [05-如何确保类似的故障不再发生.md](13-团队/05-如何确保类似的故障不再发生.md)
 - 14-工具
+  - event
+    - [01-AutoDispose.md](14-工具/event/01-AutoDispose.md)
   - indexDB
     - [index.md](14-工具/indexDB/index.md)
+  - lit
+    - [index.md](14-工具/lit/index.md)
   - promise
     - [01-手写实现.md](14-工具/promise/01-手写实现.md)
     - [index.md](14-工具/promise/index.md)
   - rsa
     - [index.md](14-工具/rsa/index.md)
+  - websocket
+    - [index.md](14-工具/websocket/index.md)
 - 15-其他
   - [01-销售.md](15-其他/01-销售.md)
 - [README.md](README.md)
