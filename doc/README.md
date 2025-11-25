@@ -57,6 +57,8 @@
     - [004-字段exports.md](03-框架/Npm/004-字段exports.md)
   - Pinia
     - [reade.md](03-框架/Pinia/reade.md)
+  - pm2
+    - [readme.md](03-框架/pm2/readme.md)
   - React
     - [01-ReactFiber.md](03-框架/React/01-ReactFiber.md)
     - [02-FiberTree.md](03-框架/React/02-FiberTree.md)
