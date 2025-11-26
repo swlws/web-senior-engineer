@@ -137,11 +137,6 @@
     - [07-SplitChunks.md](03-框架/Webpack/07-SplitChunks.md)
     - [08-替换全局字符串.md](03-框架/Webpack/08-替换全局字符串.md)
     - [readme.md](03-框架/Webpack/readme.md)
-  - nodemon
-    - [readme.md](03-框架/nodemon/readme.md)
-  - pm2
-    - [01-PM2的负载均衡.md](03-框架/pm2/01-PM2的负载均衡.md)
-    - [readme.md](03-框架/pm2/readme.md)
   - 状态
     - [01-Flux思想.md](03-框架/状态/01-Flux思想.md)
 - 04-性能优化
@@ -188,10 +183,11 @@
     - [01-最佳实践.md](05-架构设计/09-Serverless/01-最佳实践.md)
     - [readme.md](05-架构设计/09-Serverless/readme.md)
   - 10-后端服务
-    - [01-PM2的负载均衡.md](05-架构设计/10-后端服务/01-PM2的负载均衡.md)
-    - [02-PM2启动多个进程共用一个端口是如何实现的.md](05-架构设计/10-后端服务/02-PM2启动多个进程共用一个端口是如何实现的.md)
-    - [03-PM2的Cluster模式下使用SSE时如何管理或共享Client.md](05-架构设计/10-后端服务/03-PM2的Cluster模式下使用SSE时如何管理或共享Client.md)
-    - [04-Redis进程间通信.md](05-架构设计/10-后端服务/04-Redis进程间通信.md)
+    - [01-Nodemon速查表.md](05-架构设计/10-后端服务/01-Nodemon速查表.md)
+    - [02-PM2速查表.md](05-架构设计/10-后端服务/02-PM2速查表.md)
+    - [03-PM2启动多个进程共用一个端口是如何实现的.md](05-架构设计/10-后端服务/03-PM2启动多个进程共用一个端口是如何实现的.md)
+    - [04-PM2的Cluster模式下使用SSE时如何管理或共享Client.md](05-架构设计/10-后端服务/04-PM2的Cluster模式下使用SSE时如何管理或共享Client.md)
+    - [05-基于Redis的进程间通信.md](05-架构设计/10-后端服务/05-基于Redis的进程间通信.md)
   - [readme.md](05-架构设计/readme.md)
 - 06-网络与安全
   - [01-DNS解析.md](06-网络与安全/01-DNS解析.md)

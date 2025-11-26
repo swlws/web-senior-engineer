@@ -1,6 +1,6 @@
-# Redis 进程间通信
+# 基于 Redis 的进程间通信
 
-ioredis 跨进程通信，实际上是指利用 Redis 的发布/订阅（Pub/Sub）机制在不同 Node.js 进程间传递消息。ioredis 完全支持这个模式，非常适合进程间通信（IPC），尤其是在 PM2 或 cluster 模式下。
+`ioredis` 跨进程通信，实际上是指利用 Redis 的发布/订阅（Pub/Sub）机制在不同 Node.js 进程间传递消息。ioredis 完全支持这个模式，非常适合进程间通信（IPC），尤其是在 PM2 或 cluster 模式下。
 
 ## 1️⃣ 核心思想
 
