@@ -1,5 +1,6 @@
 # 目录结构
 
+- [.DS_Store](.DS_Store)
 - 00-CSS
   - [01-块级格式化上下文.md](00-CSS/01-块级格式化上下文.md)
   - [02-表单元素宽度自适应.md](00-CSS/02-表单元素宽度自适应.md)
@@ -23,9 +24,9 @@
   - [16-HashMap.md](01-JS/16-HashMap.md)
   - [17-WebComponen中有限隔离的JS上下文.md](01-JS/17-WebComponen中有限隔离的JS上下文.md)
   - [18-为什么WebComponent不做JS沙箱的设计.md](01-JS/18-为什么WebComponent不做JS沙箱的设计.md)
-  - [readme.md](01-JS/readme.md)
   - _code
     - [readme.md](01-JS/_code/readme.md)
+  - [readme.md](01-JS/readme.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -46,12 +47,11 @@
   - [16-作用域.md](02-浏览器/16-作用域.md)
   - [17-JS闭包的逃逸分析与优化.md](02-浏览器/17-JS闭包的逃逸分析与优化.md)
 - 03-框架
+  - [.DS_Store](03-框架/.DS_Store)
   - G6
     - [reade.md](03-框架/G6/reade.md)
   - Lit
     - [readme.md](03-框架/Lit/readme.md)
-  - nodemon
-    - [readme.md](03-框架/nodemon/readme.md)
   - Npm
     - [001-install过程.md](03-框架/Npm/001-install过程.md)
     - [002-第三库中的devDependencies.md](03-框架/Npm/002-第三库中的devDependencies.md)
@@ -59,9 +59,6 @@
     - [004-字段exports.md](03-框架/Npm/004-字段exports.md)
   - Pinia
     - [reade.md](03-框架/Pinia/reade.md)
-  - pm2
-    - [01-PM2的负载均衡.md](03-框架/pm2/01-PM2的负载均衡.md)
-    - [readme.md](03-框架/pm2/readme.md)
   - React
     - [01-ReactFiber.md](03-框架/React/01-ReactFiber.md)
     - [02-FiberTree.md](03-框架/React/02-FiberTree.md)
@@ -97,13 +94,13 @@
     - [readme.md](03-框架/React/readme.md)
   - Redux
     - [reade.md](03-框架/Redux/reade.md)
+  - SVG
+    - [Path语法.md](03-框架/SVG/Path语法.md)
+    - [readme.md](03-框架/SVG/readme.md)
   - Solid.js
     - [readme.md](03-框架/Solid.js/readme.md)
   - Svelte
     - [readme.md](03-框架/Svelte/readme.md)
-  - SVG
-    - [Path语法.md](03-框架/SVG/Path语法.md)
-    - [readme.md](03-框架/SVG/readme.md)
   - Vite
     - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
     - [02-Vite构建流程.md](03-框架/Vite/02-Vite构建流程.md)
@@ -140,6 +137,11 @@
     - [07-SplitChunks.md](03-框架/Webpack/07-SplitChunks.md)
     - [08-替换全局字符串.md](03-框架/Webpack/08-替换全局字符串.md)
     - [readme.md](03-框架/Webpack/readme.md)
+  - nodemon
+    - [readme.md](03-框架/nodemon/readme.md)
+  - pm2
+    - [01-PM2的负载均衡.md](03-框架/pm2/01-PM2的负载均衡.md)
+    - [readme.md](03-框架/pm2/readme.md)
   - 状态
     - [01-Flux思想.md](03-框架/状态/01-Flux思想.md)
 - 04-性能优化
@@ -185,6 +187,11 @@
   - 09-Serverless
     - [01-最佳实践.md](05-架构设计/09-Serverless/01-最佳实践.md)
     - [readme.md](05-架构设计/09-Serverless/readme.md)
+  - 10-后端服务
+    - [01-PM2的负载均衡.md](05-架构设计/10-后端服务/01-PM2的负载均衡.md)
+    - [02-PM2启动多个进程共用一个端口是如何实现的.md](05-架构设计/10-后端服务/02-PM2启动多个进程共用一个端口是如何实现的.md)
+    - [03-PM2的Cluster模式下使用SSE时如何管理或共享Client.md](05-架构设计/10-后端服务/03-PM2的Cluster模式下使用SSE时如何管理或共享Client.md)
+    - [04-Redis进程间通信.md](05-架构设计/10-后端服务/04-Redis进程间通信.md)
   - [readme.md](05-架构设计/readme.md)
 - 06-网络与安全
   - [01-DNS解析.md](06-网络与安全/01-DNS解析.md)
@@ -203,9 +210,6 @@
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
   - [16-Cookie+HttpOnly与localStorage.md](06-网络与安全/16-Cookie+HttpOnly与localStorage.md)
-- 06-项目设计与系统能力
-  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
-  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
@@ -272,9 +276,9 @@
     - [readme.md](11-项目/06-PWA/readme.md)
   - [readme.md](11-项目/readme.md)
 - 12-AI
-  - [readme.md](12-AI/readme.md)
   - _demo
     - [01-face-detach.html](12-AI/_demo/01-face-detach.html)
+  - [readme.md](12-AI/readme.md)
 - 13-团队
   - [01-团队技术选型.md](13-团队/01-团队技术选型.md)
   - [05-如何确保类似的故障不再发生.md](13-团队/05-如何确保类似的故障不再发生.md)
