@@ -1,5 +1,6 @@
 # 目录结构
 
+- [.DS_Store](.DS_Store)
 - 00-CSS
   - [01-块级格式化上下文.md](00-CSS/01-块级格式化上下文.md)
   - [02-表单元素宽度自适应.md](00-CSS/02-表单元素宽度自适应.md)
@@ -23,9 +24,9 @@
   - [16-HashMap.md](01-JS/16-HashMap.md)
   - [17-WebComponen中有限隔离的JS上下文.md](01-JS/17-WebComponen中有限隔离的JS上下文.md)
   - [18-为什么WebComponent不做JS沙箱的设计.md](01-JS/18-为什么WebComponent不做JS沙箱的设计.md)
-  - [readme.md](01-JS/readme.md)
   - _code
     - [readme.md](01-JS/_code/readme.md)
+  - [readme.md](01-JS/readme.md)
 - 02-浏览器
   - [01-现代浏览器架构设计.md](02-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](02-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -46,8 +47,9 @@
   - [16-作用域.md](02-浏览器/16-作用域.md)
   - [17-JS闭包的逃逸分析与优化.md](02-浏览器/17-JS闭包的逃逸分析与优化.md)
 - 03-框架
+  - [.DS_Store](03-框架/.DS_Store)
   - G6
-    - [reade.md](03-框架/G6/reade.md)
+    - [readme.md](03-框架/G6/readme.md)
   - Lit
     - [readme.md](03-框架/Lit/readme.md)
   - Npm
@@ -92,13 +94,13 @@
     - [readme.md](03-框架/React/readme.md)
   - Redux
     - [reade.md](03-框架/Redux/reade.md)
+  - SVG
+    - [Path语法.md](03-框架/SVG/Path语法.md)
+    - [readme.md](03-框架/SVG/readme.md)
   - Solid.js
     - [readme.md](03-框架/Solid.js/readme.md)
   - Svelte
     - [readme.md](03-框架/Svelte/readme.md)
-  - SVG
-    - [Path语法.md](03-框架/SVG/Path语法.md)
-    - [readme.md](03-框架/SVG/readme.md)
   - Vite
     - [01-DefineConfig.md](03-框架/Vite/01-DefineConfig.md)
     - [02-Vite构建流程.md](03-框架/Vite/02-Vite构建流程.md)
@@ -180,13 +182,6 @@
   - 09-Serverless
     - [01-最佳实践.md](05-架构设计/09-Serverless/01-最佳实践.md)
     - [readme.md](05-架构设计/09-Serverless/readme.md)
-  - 10-后端服务
-    - [01-Nodemon速查表.md](05-架构设计/10-后端服务/01-Nodemon速查表.md)
-    - [02-PM2速查表.md](05-架构设计/10-后端服务/02-PM2速查表.md)
-    - [03-PM2启动多个进程共用一个端口是如何实现的.md](05-架构设计/10-后端服务/03-PM2启动多个进程共用一个端口是如何实现的.md)
-    - [04-PM2的Cluster模式下使用SSE时如何管理或共享Client.md](05-架构设计/10-后端服务/04-PM2的Cluster模式下使用SSE时如何管理或共享Client.md)
-    - [05-基于Redis的进程间通信.md](05-架构设计/10-后端服务/05-基于Redis的进程间通信.md)
-    - [06-NodeJS中的进程间通信方式.md](05-架构设计/10-后端服务/06-NodeJS中的进程间通信方式.md)
   - [readme.md](05-架构设计/readme.md)
 - 06-网络与安全
   - [01-DNS解析.md](06-网络与安全/01-DNS解析.md)
@@ -205,9 +200,6 @@
   - [14-CA的作用.md](06-网络与安全/14-CA的作用.md)
   - [15-CA之后的动作.md](06-网络与安全/15-CA之后的动作.md)
   - [16-Cookie+HttpOnly与localStorage.md](06-网络与安全/16-Cookie+HttpOnly与localStorage.md)
-- 06-项目设计与系统能力
-  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
-  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-算法
   - [01-LRU.md](07-算法/01-LRU.md)
   - [readme.md](07-算法/readme.md)
@@ -229,7 +221,13 @@
   - [02-中间件.md](09-Node.js/02-中间件.md)
   - [03-CommonJS模块加载机制.md](09-Node.js/03-CommonJS模块加载机制.md)
   - [04-模块循环引用.md](09-Node.js/04-模块循环引用.md)
-  - [10-接口高并发场景.md](09-Node.js/10-接口高并发场景.md)
+  - [05-接口高并发场景.md](09-Node.js/05-接口高并发场景.md)
+  - [06-Nodemon速查表.md](09-Node.js/06-Nodemon速查表.md)
+  - [07-PM2速查表.md](09-Node.js/07-PM2速查表.md)
+  - [08-PM2启动多个进程共用一个端口是如何实现的.md](09-Node.js/08-PM2启动多个进程共用一个端口是如何实现的.md)
+  - [09-PM2的Cluster模式下使用SSE时如何管理或共享Client.md](09-Node.js/09-PM2的Cluster模式下使用SSE时如何管理或共享Client.md)
+  - [10-基于Redis的进程间通信.md](09-Node.js/10-基于Redis的进程间通信.md)
+  - [11-NodeJS中的进程间通信方式.md](09-Node.js/11-NodeJS中的进程间通信方式.md)
 - 10-代码托管
   - git
     - [01-fetch与pull.md](10-代码托管/git/01-fetch与pull.md)
@@ -274,9 +272,9 @@
     - [readme.md](11-项目/06-PWA/readme.md)
   - [readme.md](11-项目/readme.md)
 - 12-AI
-  - [readme.md](12-AI/readme.md)
   - _demo
     - [01-face-detach.html](12-AI/_demo/01-face-detach.html)
+  - [readme.md](12-AI/readme.md)
 - 13-团队
   - [01-团队技术选型.md](13-团队/01-团队技术选型.md)
   - [05-如何确保类似的故障不再发生.md](13-团队/05-如何确保类似的故障不再发生.md)
