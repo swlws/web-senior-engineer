@@ -61,6 +61,7 @@
   - G6
     - [readme.md](05-框架/G6/readme.md)
   - Lit
+    - [01-为什么选择Lit.md](05-框架/Lit/01-为什么选择Lit.md)
     - [readme.md](05-框架/Lit/readme.md)
   - Npm
     - [001-install过程.md](05-框架/Npm/001-install过程.md)
