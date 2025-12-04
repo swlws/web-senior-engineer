@@ -112,6 +112,8 @@
     - [readme.md](05-框架/Solid.js/readme.md)
   - Svelte
     - [readme.md](05-框架/Svelte/readme.md)
+  - Taro
+    - [readme.md](05-框架/Taro/readme.md)
   - Vite
     - [01-DefineConfig.md](05-框架/Vite/01-DefineConfig.md)
     - [02-Vite构建流程.md](05-框架/Vite/02-Vite构建流程.md)
