@@ -115,6 +115,7 @@
   - Taro
     - [01-跨端差异处理策略总结.md](05-框架/Taro/01-跨端差异处理策略总结.md)
     - [02-跨端Hook规范.md](05-框架/Taro/02-跨端Hook规范.md)
+    - [03-Taro vs 原生小程序 vs UniApp vs Remax 深度对比表.md](05-框架/Taro/03-Taro%20vs%20原生小程序%20vs%20UniApp%20vs%20Remax%20深度对比表.md)
     - [readme.md](05-框架/Taro/readme.md)
   - Vite
     - [01-DefineConfig.md](05-框架/Vite/01-DefineConfig.md)
