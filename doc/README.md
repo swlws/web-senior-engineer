@@ -56,6 +56,7 @@
     - [003-字段main与module.md](03-框架/Npm/003-字段main与module.md)
     - [004-字段exports.md](03-框架/Npm/004-字段exports.md)
   - Pinia
+    - [01-Pina在设计上为什么去除Mutation.md](03-框架/Pinia/01-Pina在设计上为什么去除Mutation.md)
     - [reade.md](03-框架/Pinia/reade.md)
   - React
     - [01-ReactFiber.md](03-框架/React/01-ReactFiber.md)
@@ -91,6 +92,7 @@
     - [31-useEvent速查表.md](03-框架/React/31-useEvent速查表.md)
     - [readme.md](03-框架/React/readme.md)
   - Redux
+    - [01-对比 Redux Toolkit 与 Pinia 的设计哲学.md](03-框架/Redux/01-对比%20Redux%20Toolkit%20与%20Pinia%20的设计哲学.md)
     - [reade.md](03-框架/Redux/reade.md)
   - Solid.js
     - [readme.md](03-框架/Solid.js/readme.md)
