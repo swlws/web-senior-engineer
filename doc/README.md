@@ -121,6 +121,7 @@
     - [04-Taro事件模型.md](05-框架/Taro/04-Taro事件模型.md)
     - [05-Taro性能优化.md](05-框架/Taro/05-Taro性能优化.md)
     - [06-Taro编译优化.md](05-框架/Taro/06-Taro编译优化.md)
+    - [20-Taro自定义高度方案.md](05-框架/Taro/20-Taro自定义高度方案.md)
     - [qa.md](05-框架/Taro/qa.md)
     - [readme.md](05-框架/Taro/readme.md)
   - Vite
