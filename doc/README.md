@@ -20,6 +20,7 @@
   - [15-JS执行上下文.md](01-浏览器/15-JS执行上下文.md)
   - [16-作用域.md](01-浏览器/16-作用域.md)
   - [17-JS闭包的逃逸分析与优化.md](01-浏览器/17-JS闭包的逃逸分析与优化.md)
+  - [readme.md](01-浏览器/readme.md)
 - 02-CSS
   - [01-块级格式化上下文.md](02-CSS/01-块级格式化上下文.md)
   - [02-表单元素宽度自适应.md](02-CSS/02-表单元素宽度自适应.md)
@@ -69,6 +70,7 @@
     - [003-字段main与module.md](05-框架/Npm/003-字段main与module.md)
     - [004-字段exports.md](05-框架/Npm/004-字段exports.md)
   - Pinia
+    - [01-Pina在设计上为什么去除Mutation.md](05-框架/Pinia/01-Pina在设计上为什么去除Mutation.md)
     - [reade.md](05-框架/Pinia/reade.md)
   - React
     - [01-ReactFiber.md](05-框架/React/01-ReactFiber.md)
@@ -104,6 +106,7 @@
     - [31-useEvent速查表.md](05-框架/React/31-useEvent速查表.md)
     - [readme.md](05-框架/React/readme.md)
   - Redux
+    - [01-对比 Redux Toolkit 与 Pinia 的设计哲学.md](05-框架/Redux/01-对比%20Redux%20Toolkit%20与%20Pinia%20的设计哲学.md)
     - [reade.md](05-框架/Redux/reade.md)
   - SVG
     - [Path语法.md](05-框架/SVG/Path语法.md)
@@ -119,6 +122,7 @@
     - [04-Taro事件模型.md](05-框架/Taro/04-Taro事件模型.md)
     - [05-Taro性能优化.md](05-框架/Taro/05-Taro性能优化.md)
     - [06-Taro编译优化.md](05-框架/Taro/06-Taro编译优化.md)
+    - [qa.md](05-框架/Taro/qa.md)
     - [readme.md](05-框架/Taro/readme.md)
   - Vite
     - [01-DefineConfig.md](05-框架/Vite/01-DefineConfig.md)
