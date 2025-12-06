@@ -105,6 +105,7 @@
     - [29- React中的闭包陷阱.md](05-框架/React/29-%20React中的闭包陷阱.md)
     - [30-useEvent.md](05-框架/React/30-useEvent.md)
     - [31-useEvent速查表.md](05-框架/React/31-useEvent速查表.md)
+    - [32-React事件模型.md](05-框架/React/32-React事件模型.md)
     - [readme.md](05-框架/React/readme.md)
   - Redux
     - [01-对比 Redux Toolkit 与 Pinia 的设计哲学.md](05-框架/Redux/01-对比%20Redux%20Toolkit%20与%20Pinia%20的设计哲学.md)
