@@ -157,9 +157,9 @@ module.exports = {
 
 ## CheckList
 
-- [x] 升级到 Taro >= 3.5（支持 Webpack5、依赖预编译等）并核对版本。
-- [x] 在 config/index.js 开启 mini.cache.enable = true 并在 CI/本地设计 cache 清理策略。
-- [x] 安装并启用 taro-plugin-compiler-optimization（快速收益）。
-- [x] 将 jsMinimizer 配置为 esbuild（或在 dev 使用 esbuild，prod 根据兼容性选择），并开启 esbuild.minify.enable。
-- [x] 调整 babel-loader：cacheDirectory: true、仅 include src、exclude node_modules。
-- [x] 做分包/子包拆分，减少小程序每次上传/预览体积。
+- [ ] 升级到 Taro >= 3.5（支持 Webpack5、依赖预编译等）并核对版本。
+- [ ] 在 config/index.js 开启 mini.cache.enable = true 并在 CI/本地设计 cache 清理策略。
+- [ ] 安装并启用 taro-plugin-compiler-optimization（快速收益）。
+- [ ] 将 jsMinimizer 配置为 esbuild（或在 dev 使用 esbuild，prod 根据兼容性选择），并开启 esbuild.minify.enable。
+- [ ] 调整 babel-loader：cacheDirectory: true、仅 include src、exclude node_modules。
+- [ ] 做分包/子包拆分，减少小程序每次上传/预览体积。
