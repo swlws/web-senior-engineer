@@ -56,7 +56,7 @@ setState({ a: 1, b: 2 });
 ### ✔ 使用 Taro 官方 虚拟列表（VirtualList）
 
 ```tsx
-import { VirtualList } from "@tarojs/components";
+import { VirtualList } from "@tarojs/components-advanced";
 
 <VirtualList
   height={600}
