@@ -60,6 +60,7 @@
   - [09-PM2的Cluster模式下使用SSE时如何管理或共享Client.md](04-Node.js/09-PM2的Cluster模式下使用SSE时如何管理或共享Client.md)
   - [10-基于Redis的进程间通信.md](04-Node.js/10-基于Redis的进程间通信.md)
   - [11-NodeJS中的进程间通信方式.md](04-Node.js/11-NodeJS中的进程间通信方式.md)
+  - [12-NodeJS中VM的实现原理.md](04-Node.js/12-NodeJS中VM的实现原理.md)
 - 05-框架
   - [.DS_Store](05-框架/.DS_Store)
   - G6
