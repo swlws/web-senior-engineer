@@ -40,7 +40,7 @@ module.exports = config;
 
 - [doc](https://docs.taro.zone/docs/prebundle)
 
-## 使用 esbuild/swc 代替 Babel（或用于压缩/minify）
+## 三、使用 esbuild/swc 代替 Babel（或用于压缩/minify）
 
 大幅提升编译和压缩速度。
 
@@ -69,7 +69,7 @@ module.exports = {
 
 > esbuild 对某些非常规第三方库的压缩可能有兼容性问题（遇到问题时回退 terser）。
 
-## 三、多线程 + 缓存（thread-loader + cache-loader / babel cacheDirectory）
+## 四、多线程 + 缓存（thread-loader + cache-loader / babel cacheDirectory）
 
 对 CPU 密集型 loader（Sass、Babel）提升明显。
 
@@ -97,7 +97,7 @@ module.exports = {
 };
 ```
 
-## 四、缩小 Babel/TS 转换范围（exclude node_modules，include 具体 src）并开启 babel 缓存
+## 五、缩小 Babel/TS 转换范围（exclude node_modules，include 具体 src）并开启 babel 缓存
 
 在自定义 webpack 配置中确保 babel-loader 有 `cacheDirectory: true`，并且只处理 src，避免处理大量 `node_modules`。Webpack 官方/社区长期建议这样做。
 
@@ -119,7 +119,7 @@ chain.module
   .options({ cacheDirectory: true });
 ```
 
-## 五、按需分包 / 子包（小程序）
+## 六、按需分包 / 子包（小程序）
 
 小程序端通过分包/子包能有效避免“包太大导致无法预览”的问题（社区实践多数项目都靠分包解决）
 
@@ -149,13 +149,13 @@ module.exports = {
 
 目前只支持微信小程序
 
-## 六、生产构建关闭不必要的功能
+## 七、生产构建关闭不必要的功能
 
 如关闭 sourceMap、移除 dev-only 插件/日志、减少 polyfills、使用 CDN 加载大包等，都可减少构建产物大小与压缩时间。
 
 例：enableSourceMap: false（生产环境）。
 
-## CheckList
+## 八、CheckList
 
 - [ ] 升级到 Taro >= 3.5（支持 Webpack5、依赖预编译等）并核对版本。
 - [ ] 在 config/index.js 开启 mini.cache.enable = true 并在 CI/本地设计 cache 清理策略。
