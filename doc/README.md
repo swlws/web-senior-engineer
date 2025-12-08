@@ -21,6 +21,7 @@
   - [16-作用域.md](01-浏览器/16-作用域.md)
   - [17-JS闭包的逃逸分析与优化.md](01-浏览器/17-JS闭包的逃逸分析与优化.md)
   - [18-JS事件模型.md](01-浏览器/18-JS事件模型.md)
+  - [19-Cookie Session Token 的演变历程.md](01-浏览器/19-Cookie%20Session%20Token%20的演变历程.md)
   - [readme.md](01-浏览器/readme.md)
 - 02-CSS
   - [01-块级格式化上下文.md](02-CSS/01-块级格式化上下文.md)
