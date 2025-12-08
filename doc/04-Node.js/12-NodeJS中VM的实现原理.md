@@ -141,7 +141,7 @@ vm2 本质是：
 const vm = require("vm");
 
 const sandbox = { a: 1 };
-vm.createContext(sandbox);
+const ctx = vm.createContext(sandbox);
 
 vm.runInContext(
   `
@@ -155,10 +155,12 @@ console.log(sandbox.b); // 2
 
 执行流程：
 
-1. 创建新的 V8 Context → context
-2. 把 sandbox 变成 context.global
-3. 用 Script 编译代码
-4. 在 context 内执行并返回值
+1. 创建一个全新的 V8::Context
+2. 把你传进去的对象当成 global 对象的“代理层”
+3. 给这个对象打补丁，让它行为类似浏览器里的 window/globalThis
+4. 使 ctx 和 V8 Context 之间互相“镜像”属性
+
+> 所以 ctx.a = 1 会传进 V8 context 的 global 上。
 
 内部大致等价：
 
