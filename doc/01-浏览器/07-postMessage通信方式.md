@@ -82,3 +82,58 @@ window.addEventListener("message", function (event) {
 | 典型用途         | iframe 通信、OAuth 登录回调、微前端框架等 |
 
 如你有具体场景（如 OAuth、iframe、微前端），我可以帮你写一个完整的 postMessage 实战示例。
+
+---
+
+## 扩充
+
+### 基于 postMessage + MessageChannel 的 RPC 通信
+
+父页面发送一个 call("sum", [1,2])，iframe 执行并返回结果。
+
+父页面
+
+```js
+const channel = new MessageChannel();
+iframe.contentWindow.postMessage("init", "*", [channel.port2]);
+
+function call(method, args) {
+  return new Promise((resolve) => {
+    channel.port1.onmessage = resolve;
+    channel.port1.postMessage({ method, args });
+  });
+}
+
+// 调用 iframe 的 sum 函数
+call("sum", [1, 2]).then((res) => console.log(res.data));
+```
+
+iframe
+
+```js
+window.addEventListener("message", (e) => {
+  const port = e.ports[0];
+
+  port.onmessage = (e) => {
+    const { method, args } = e.data;
+    const result = methods[method](...args);
+    port.postMessage(result);
+  };
+});
+
+const methods = {
+  sum(a, b) {
+    return a + b;
+  },
+};
+```
+
+### 为什么需要 MessageChannel
+
+| 功能             | postMessage                  | MessageChannel           |
+| ---------------- | ---------------------------- | ------------------------ |
+| 是否需要全局监听 | 需要 window.addEventListener | 不需要，全专用           |
+| 通道数量         | 单通道，全局共用             | 可无限创建               |
+| 是否双向         | 是                           | 是                       |
+| 性能             | 中                           | 高（不进主线程事件队列） |
+| 管理复杂度       | 容易混乱                     | 每对 port 独立           |
