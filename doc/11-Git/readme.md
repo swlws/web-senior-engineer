@@ -3,7 +3,13 @@
 - git
 - svn
 
-文件名过程的处理
+## 代码量
+
+```bash
+git log --author=userName --since="$(date +"%Y-%m-%d 00:00:00")" --pretty=tformat: --numstat | awk '{plus+=$1; minus+=$2;} END{printf("total lines added: %s\ntotal lines deleted: %s\n", plus, minus)}'
+```
+
+## 文件名过程的处理
 
 ```bash
 git config --system core.longpaths true
