@@ -1,4 +1,4 @@
-# BuildTimeBannerPlugin
+# ModuleBuildTimeBannerPlugin
 
 构建时记录一个时间 → 在最终上线页面里自动打印到浏览器控制台。
 
@@ -8,45 +8,32 @@
 🕒 Build Time: 2025-12-09 14:35:01
 ```
 
-## 插件源码：BuildTimeBannerPlugin.js
+## 插件源码：ModuleBuildTimeBannerPlugin.js
 
 ```js
-// BuildTimeBannerPlugin.js
+// ModuleBuildTimeBannerPlugin.js
 
-class BuildTimeBannerPlugin {
+class ModuleBuildTimeBannerPlugin {
   constructor(options = {}) {
     this.enabled = options.enabled !== false; // 默认启用
   }
 
   apply(compiler) {
     compiler.hooks.thisCompilation.tap(
-      "BuildTimeBannerPlugin",
+      "ModuleBuildTimeBannerPlugin",
       (compilation) => {
-        // only apply in production
-        if (compiler.options.mode !== "production") return;
-
-        const buildTime = new Date();
-        const yyyy = buildTime.getFullYear();
-        const MM = String(buildTime.getMonth() + 1).padStart(2, "0");
-        const dd = String(buildTime.getDate()).padStart(2, "0");
-        const HH = String(buildTime.getHours()).padStart(2, "0");
-        const mm = String(buildTime.getMinutes()).padStart(2, "0");
-        const ss = String(buildTime.getSeconds()).padStart(2, "0");
-
-        const message = `🕒 Build Time: ${yyyy}-${MM}-${dd} ${HH}:${mm}:${ss}`;
-
-        // 在 JS 入口资产中注入 console.log
-        const bannerCode = `\n/* BuildTimeBannerPlugin */\nconsole.log("%c${message}", "color:#4caf50;font-size:14px;");\n`;
-
         // Webpack5 recommended hook
         compilation.hooks.processAssets.tap(
           {
-            name: "BuildTimeBannerPlugin",
+            name: "ModuleBuildTimeBannerPlugin",
             stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONS,
           },
           (assets) => {
             for (const assetName of Object.keys(assets)) {
               if (/\.(js|mjs)$/.test(assetName)) {
+                // 在 JS 入口资产中注入 console.log
+                const bannerCode = createBannerCode(assetName);
+
                 const source = assets[assetName].source();
                 const updated = bannerCode + "\n" + source;
 
@@ -63,16 +50,22 @@ class BuildTimeBannerPlugin {
   }
 }
 
-module.exports = BuildTimeBannerPlugin;
+function createBannerCode(assetName) {
+  const buildTime = new Date().toLocaleString();
+  const message = `🕒 [${assetName}] Build Time: ${buildTime}`;
+  return `\n/* ModuleBuildTimeBannerPlugin */\nconsole.log("%c${message}", "color:#4caf50;font-size:14px;");\n`;
+}
+
+module.exports = ModuleBuildTimeBannerPlugin;
 ```
 
 ## 使用方式（webpack.prod.js）
 
 ```js
-const BuildTimeBannerPlugin = require("./BuildTimeBannerPlugin");
+const ModuleBuildTimeBannerPlugin = require("./ModuleBuildTimeBannerPlugin");
 
 module.exports = {
   mode: "production",
-  plugins: [new BuildTimeBannerPlugin()],
+  plugins: [new ModuleBuildTimeBannerPlugin()],
 };
 ```

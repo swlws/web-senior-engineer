@@ -177,8 +177,8 @@
     - [01-Complier的钩子.md](05-框架/WebpackPlugin/01-Complier的钩子.md)
     - [02-Compilation的钩子.md](05-框架/WebpackPlugin/02-Compilation的钩子.md)
     - [03-启用ThreadLoader.md](05-框架/WebpackPlugin/03-启用ThreadLoader.md)
-    - [04-BuildTimeBannerPlugin.md](05-框架/WebpackPlugin/04-BuildTimeBannerPlugin.md)
-    - [05-BuildTimeBannerPlugin-V2.md](05-框架/WebpackPlugin/05-BuildTimeBannerPlugin-V2.md)
+    - [04-ModuleBuildTimeBannerPlugin.md](05-框架/WebpackPlugin/04-ModuleBuildTimeBannerPlugin.md)
+    - [05-ProjectBuildTimeBannerPlugin.md](05-框架/WebpackPlugin/05-ProjectBuildTimeBannerPlugin.md)
     - [06-HtmlInjectBuildTimePlugin.md](05-框架/WebpackPlugin/06-HtmlInjectBuildTimePlugin.md)
     - [readme.md](05-框架/WebpackPlugin/readme.md)
   - 状态

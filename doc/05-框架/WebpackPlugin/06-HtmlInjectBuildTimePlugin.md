@@ -26,4 +26,6 @@ class HtmlInjectBuildTimePlugin {
     );
   }
 }
+
+module.exports = HtmlInjectBuildTimePlugin;
 ```
