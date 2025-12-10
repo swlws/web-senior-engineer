@@ -21,8 +21,8 @@ src/
     hooks/
       useLogin/
         index.ts        # 跨端 Hook 主入口
-        useLogin.weapp.ts
-        useLogin.h5.ts
+        index.weapp.ts
+        index.h5.ts
         useLogin.rn.ts
         types.ts
       useInfiniteList/
@@ -97,7 +97,7 @@ export function useLogin(opts?: UseLoginOptions): UseLoginResult;
 
 ```ts
 // useLogin/index.ts
-export * from "./useLogin.weapp";
+export * from "./index.weapp";
 ```
 
 Webpack/Vite 会根据 TARO_ENV 自动选择对应文件。
@@ -105,8 +105,8 @@ Webpack/Vite 会根据 TARO_ENV 自动选择对应文件。
 文件列表：
 
 ```txt
-useLogin.weapp.ts
-useLogin.h5.ts
+index.weapp.ts
+index.h5.ts
 useLogin.rn.ts
 ```
 
@@ -214,8 +214,8 @@ try {
 
 ```txt
 __tests__/
-  useLogin.weapp.test.ts
-  useLogin.h5.test.ts
+  index.weapp.test.ts
+  index.h5.test.ts
 ```
 
 测试：
@@ -231,23 +231,23 @@ __tests__/
 ```txt
 useLogin/
   index.ts
-  useLogin.weapp.ts
-  useLogin.h5.ts
+  index.weapp.ts
+  index.h5.ts
   types.ts
 ```
 
 #### index.ts
 
 ```ts
-export * from "./useLogin.weapp";
+export * from "./index.weapp";
 ```
 
 #### 自动编译：
 
-- WeApp → useLogin.weapp
-- H5 → useLogin.h5
+- WeApp → index.weapp
+- H5 → index.h5
 
-#### useLogin.weapp.ts
+#### index.weapp.ts
 
 ```ts
 import Taro from "@tarojs/taro";
@@ -262,7 +262,7 @@ export function useLogin(): UseLoginResult {
 }
 ```
 
-#### useLogin.h5.ts
+#### index.h5.ts
 
 ```ts
 import { UseLoginResult } from "./types";
