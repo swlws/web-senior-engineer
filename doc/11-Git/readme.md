@@ -3,6 +3,12 @@
 - git
 - svn
 
+## SSH
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
 ## 代码量
 
 ```bash
