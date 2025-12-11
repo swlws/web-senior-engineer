@@ -182,6 +182,7 @@
     - [04-ModuleBuildTimeBannerPlugin.md](05-框架/WebpackPlugin/04-ModuleBuildTimeBannerPlugin.md)
     - [05-ProjectBuildTimeBannerPlugin.md](05-框架/WebpackPlugin/05-ProjectBuildTimeBannerPlugin.md)
     - [06-HtmlInjectBuildTimePlugin.md](05-框架/WebpackPlugin/06-HtmlInjectBuildTimePlugin.md)
+    - [07-PrebundleRedirectPlugin.md](05-框架/WebpackPlugin/07-PrebundleRedirectPlugin.md)
     - [readme.md](05-框架/WebpackPlugin/readme.md)
   - 状态
     - [01-Flux思想.md](05-框架/状态/01-Flux思想.md)
