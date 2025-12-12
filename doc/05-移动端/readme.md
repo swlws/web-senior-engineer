@@ -12,14 +12,14 @@
 - iPhone 刘海屏安全区域（safe-area-inset）
 - 1px 细线问题及解决方案（transform / pseudo / border-image）
 
-2. 横屏、竖屏检测
+### 2. 横屏、竖屏检测
 
 - window.orientation / screen.orientation
 - resize 方式
 - 小程序 onDeviceOrientationChange
 - H5 内嵌 WebView 的横竖屏限制
 
-3. 视口 Viewport
+### 3. 视口 Viewport
 
 - initial-scale 工作机制
 - layout viewport / visual viewport / ideal viewport 的区别
