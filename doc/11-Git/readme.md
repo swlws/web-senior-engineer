@@ -62,3 +62,9 @@ test -f ~/.bashrc && . ~/.bashrc
  name = swlws
  email = 123456@qq.com
 ```
+
+## Git Star
+
+```bash
+https://www.star-history.com/#zh-lx/code-inspector&type=date&legend=top-left
+```
