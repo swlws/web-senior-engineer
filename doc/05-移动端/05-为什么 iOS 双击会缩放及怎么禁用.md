@@ -125,3 +125,11 @@ html, body {
 - 保留无障碍
 - 禁止误触双击缩放
 - 不影响正常交互
+
+## 五、一段话
+
+- iOS 双击缩放是为了解决早期 PC 网页在小屏设备上的可读性问题，
+- Safari 会在双击时智能放大可读内容块，而不是简单缩放整个页面；
+- 技术上表现为 visual viewport 缩放、layout viewport 不变。
+- 禁用方式主要通过 viewport 限制或 CSS touch-action，
+- 其中 touch-action: manipulation 是更推荐的现代方案。
