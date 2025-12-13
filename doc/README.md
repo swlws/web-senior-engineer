@@ -195,6 +195,7 @@
   - [06-WebView 中 viewport-fit=cover 的作用.md](05-移动端/06-WebView%20中%20viewport-fit=cover%20的作用.md)
   - [07-Touch事件.md](05-移动端/07-Touch事件.md)
   - [08-Pointer事件.md](05-移动端/08-Pointer事件.md)
+  - [09-PointerEvent的多指检测.md](05-移动端/09-PointerEvent的多指检测.md)
   - [20-视口Viewport.md](05-移动端/20-视口Viewport.md)
   - [readme.md](05-移动端/readme.md)
 - 06-架构
