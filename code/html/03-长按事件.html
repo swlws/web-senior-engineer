@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>长按事件</title>
+  </head>
+  <body>
+    <div id="btn">长按这里</div>
+    <script>
+      function bindLongPress(el, callback, options = {}) {
+        const delay = options.delay ?? 600;
+        const moveThreshold = options.moveThreshold ?? 10;
+
+        let timer = null;
+        let startX = 0;
+        let startY = 0;
+        let triggered = false;
+
+        el.addEventListener("touchstart", (e) => {
+          if (e.touches.length !== 1) return;
+
+          const t = e.touches[0];
+          startX = t.clientX;
+          startY = t.clientY;
+          triggered = false;
+
+          timer = setTimeout(() => {
+            triggered = true;
+            callback(e);
+          }, delay);
+        });
+
+        el.addEventListener("touchmove", (e) => {
+          if (!timer) return;
+
+          const t = e.touches[0];
+          const dx = t.clientX - startX;
+          const dy = t.clientY - startY;
+
+          if (Math.hypot(dx, dy) > moveThreshold) {
+            clearTimeout(timer);
+            timer = null;
+          }
+        });
+
+        el.addEventListener("touchend", cleanup);
+        el.addEventListener("touchcancel", cleanup);
+
+        el.addEventListener("click", (e) => {
+          console.log("click事件触发");
+          if (triggered) {
+            console.log("点击事件触发");
+            e.preventDefault();
+            e.stopPropagation();
+            triggered = false;
+          }
+        });
+
+        function cleanup() {
+          if (timer) {
+            clearTimeout(timer);
+            timer = null;
+          }
+        }
+      }
+
+      bindLongPress(document.getElementById("btn"), (e) => {
+        console.log("长按事件触发");
+      });
+    </script>
+  </body>
+</html>

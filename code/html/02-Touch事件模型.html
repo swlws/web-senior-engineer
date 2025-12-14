@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touch事件模型</title>
+  </head>
+  <body>
+    <div id="btn">点击这里</div>
+
+    <script>
+      function bindTouchEvent(el) {
+        el.addEventListener("touchstart", (e) => {
+          console.log("touchstart");
+        });
+        el.addEventListener("touchmove", (e) => {
+          console.log("touchmove");
+        });
+        el.addEventListener("touchend", (e) => {
+          console.log("touchend");
+        });
+        el.addEventListener("touchcancel", (e) => {
+          console.log("touchcancel");
+        });
+      }
+
+      bindTouchEvent(document.getElementById("btn"));
+
+      function bindClickEvent(el) {
+        el.addEventListener("click", (e) => {
+          console.log("click");
+        });
+      }
+
+      bindClickEvent(document.getElementById("btn"));
+    </script>
+  </body>
+</html>
