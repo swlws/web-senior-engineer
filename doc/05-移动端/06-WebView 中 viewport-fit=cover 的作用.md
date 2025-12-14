@@ -5,6 +5,7 @@
 ## 一、一句话结论
 
 viewport-fit=cover 决定：
+
 > WebView 是否允许网页内容延伸到「安全区域（safe area）」之外，
 > 即是否覆盖刘海 / 圆角 / Home Indicator 区域。
 
@@ -37,10 +38,10 @@ viewport-fit=cover 决定：
 />
 ```
 
-| 值          | 行为         |
-| ---------- | ---------- |
+| 值             | 行为                 |
+| -------------- | -------------------- |
 | `auto`（默认） | 内容限制在安全区域内 |
-| `cover`    | 内容铺满整个物理屏幕 |
+| `cover`        | 内容铺满整个物理屏幕 |
 
 ## 四、在 WebView 中到底发生了什么？
 
@@ -145,8 +146,8 @@ viewport-fit=cover 决定：
 👉 建议：
 
 ```js
-const vh = window.innerHeight * 0.01
-document.documentElement.style.setProperty('--vh', `${vh}px`)
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
 ```
 
 ### ⚠️ 坑 2：Android 基本忽略 viewport-fit
