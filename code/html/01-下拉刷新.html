@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移动端-下拉刷新</title>
+    <style>
+      .wrapper {
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      .pull-header {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        transform: translateY(-60px);
+        transition: transform 0.3s;
+      }
+
+      .wrapper.pull .pull-header {
+        transform: translateY(0);
+      }
+
+      .wrapper.loading .pull-header {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="pull-header">下拉刷新</div>
+      <div class="content">内容区域</div>
+    </div>
+
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+      const header = document.querySelector(".pull-header");
+
+      let startY = 0;
+      let offset = 0;
+      let pulling = false;
+      const threshold = 60;
+
+      wrapper.addEventListener("touchstart", (e) => {
+        console.log(wrapper.scrollTop);
+        if (wrapper.scrollTop !== 0) return;
+        startY = e.touches[0].clientY;
+        pulling = true;
+      });
+
+      wrapper.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!pulling) return;
+
+          const dy = e.touches[0].clientY - startY;
+          if (dy <= 0) return;
+
+          e.preventDefault(); // ⚠️ 必须 passive:false
+
+          offset = dy * 0.5;
+          wrapper.style.transform = `translateY(${offset}px)`;
+
+          if (offset > threshold) {
+            wrapper.classList.add("ready");
+          } else {
+            wrapper.classList.remove("ready");
+          }
+        },
+        { passive: false }
+      );
+
+      wrapper.addEventListener("touchend", () => {
+        pulling = false;
+        wrapper.style.transform = "";
+
+        if (offset > threshold) {
+          wrapper.classList.add("loading");
+          doRefresh();
+        } else {
+          reset();
+        }
+      });
+
+      function doRefresh() {
+        setTimeout(() => {
+          wrapper.classList.remove("loading");
+          reset();
+        }, 1500);
+      }
+
+      function reset() {
+        offset = 0;
+        wrapper.classList.remove("ready");
+      }
+    </script>
+  </body>
+</html>
