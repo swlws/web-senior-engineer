@@ -206,7 +206,6 @@
   - [15-iOS 输入法遮挡问题.md](05-移动端/15-iOS%20输入法遮挡问题.md)
   - [16-Android 键盘弹起导致 resize.md](05-移动端/16-Android%20键盘弹起导致%20resize.md)
   - [17-如何判断键盘弹起.md](05-移动端/17-如何判断键盘弹起.md)
-  - [20-视口Viewport.md](05-移动端/20-视口Viewport.md)
   - [readme.md](05-移动端/readme.md)
 - 06-架构
   - 00-架构设计原则
