@@ -93,6 +93,9 @@
 - WebP、AVIF、动态图片替换策略
 - iOS 网络缓存策略差异
 - 预加载、预渲染（prefetch、prerender）
+  > prefetch 是浏览器在空闲时以低优先级预取可能会用到的资源，用于加速后续页面加载；
+  > prerender 则是在后台完整加载并渲染目标页面，包括执行 JS，用户跳转时可以实现几乎瞬时打开；
+  > 相比之下 prerender 资源消耗更大、使用更谨慎，实际工程中更多使用 prefetch 进行渐进式性能优化。
 - code-splitting（现代 SPA）
 
 ## Ⅶ. 移动端网络与缓存
