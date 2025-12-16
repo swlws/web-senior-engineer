@@ -62,6 +62,8 @@
   - [10-基于Redis的进程间通信.md](04-Node.js/10-基于Redis的进程间通信.md)
   - [11-NodeJS中的进程间通信方式.md](04-Node.js/11-NodeJS中的进程间通信方式.md)
   - [12-NodeJS中VM的实现原理.md](04-Node.js/12-NodeJS中VM的实现原理.md)
+- 05-服务端
+  - [01-高并发.md](05-服务端/01-高并发.md)
 - 05-框架
   - G6
     - [readme.md](05-框架/G6/readme.md)
