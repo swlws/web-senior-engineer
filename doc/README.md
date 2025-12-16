@@ -1,6 +1,5 @@
 # 目录结构
 
-- [.DS_Store](.DS_Store)
 - 01-浏览器
   - [01-现代浏览器架构设计.md](01-浏览器/01-现代浏览器架构设计.md)
   - [02-浏览器输入 URL 到页面展示过程.md](01-浏览器/02-浏览器输入%20URL%20到页面展示过程.md)
@@ -64,7 +63,6 @@
   - [11-NodeJS中的进程间通信方式.md](04-Node.js/11-NodeJS中的进程间通信方式.md)
   - [12-NodeJS中VM的实现原理.md](04-Node.js/12-NodeJS中VM的实现原理.md)
 - 05-框架
-  - [.DS_Store](05-框架/.DS_Store)
   - G6
     - [readme.md](05-框架/G6/readme.md)
   - Lit
@@ -115,13 +113,13 @@
   - Redux
     - [01-对比 Redux Toolkit 与 Pinia 的设计哲学.md](05-框架/Redux/01-对比%20Redux%20Toolkit%20与%20Pinia%20的设计哲学.md)
     - [reade.md](05-框架/Redux/reade.md)
-  - SVG
-    - [Path语法.md](05-框架/SVG/Path语法.md)
-    - [readme.md](05-框架/SVG/readme.md)
   - Solid.js
     - [readme.md](05-框架/Solid.js/readme.md)
   - Svelte
     - [readme.md](05-框架/Svelte/readme.md)
+  - SVG
+    - [Path语法.md](05-框架/SVG/Path语法.md)
+    - [readme.md](05-框架/SVG/readme.md)
   - Taro
     - [01-跨端差异处理策略总结.md](05-框架/Taro/01-跨端差异处理策略总结.md)
     - [02-跨端Hook规范.md](05-框架/Taro/02-跨端Hook规范.md)
@@ -199,7 +197,7 @@
   - [08-Pointer事件.md](05-移动端/08-Pointer事件.md)
   - [09-PointerEvent的多指检测.md](05-移动端/09-PointerEvent的多指检测.md)
   - [10-click 300ms 延迟的原因.md](05-移动端/10-click%20300ms%20延迟的原因.md)
-  - [11-passive listener：为什么要 passive: true.md](05-移动端/11-passive%20listener：为什么要%20passive:%20true.md)
+  - [11-passive listener 为什么要 passive值为true.md](05-移动端/11-passive%20listener%20为什么要%20passive值为true.md)
   - [12-滚动穿透（透传）问题.md](05-移动端/12-滚动穿透（透传）问题.md)
   - [13-上拉 下拉刷新实现（touch 系列 + 位移）.md](05-移动端/13-上拉%20下拉刷新实现（touch%20系列%20+%20位移）.md)
   - [14-长按处理.md](05-移动端/14-长按处理.md)
@@ -213,6 +211,7 @@
   - [22-小程序setData性能问题.md](05-移动端/22-小程序setData性能问题.md)
   - [23-小程序局部更新列表.md](05-移动端/23-小程序局部更新列表.md)
   - [24-小程序渲染层 vs 逻辑层.md](05-移动端/24-小程序渲染层%20vs%20逻辑层.md)
+  - [25-微信小程序登录流程.md](05-移动端/25-微信小程序登录流程.md)
   - [readme.md](05-移动端/readme.md)
 - 06-架构
   - 00-架构设计原则
@@ -254,6 +253,9 @@
     - [01-最佳实践.md](06-架构/09-Serverless/01-最佳实践.md)
     - [readme.md](06-架构/09-Serverless/readme.md)
   - [readme.md](06-架构/readme.md)
+- 06-项目设计与系统能力
+  - [02-虚拟列表](06-项目设计与系统能力/02-虚拟列表)
+  - [03-微前端](06-项目设计与系统能力/03-微前端)
 - 07-性能
   - [01-首屏优化.md](07-性能/01-首屏优化.md)
   - [02-首屏优化-VueReact.md](07-性能/02-首屏优化-VueReact.md)
@@ -334,9 +336,9 @@
     - [readme.md](12-项目/06-PWA/readme.md)
   - [readme.md](12-项目/readme.md)
 - 13-AI
+  - [readme.md](13-AI/readme.md)
   - _demo
     - [01-face-detach.html](13-AI/_demo/01-face-detach.html)
-  - [readme.md](13-AI/readme.md)
 - 14-工具抽象
   - event
     - [01-AutoDispose.md](14-工具抽象/event/01-AutoDispose.md)
