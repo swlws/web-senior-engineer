@@ -345,6 +345,7 @@
   - [02-RAG.md](13-AI/02-RAG.md)
   - [03-MCP.md](13-AI/03-MCP.md)
   - [04-Agent.md](13-AI/04-Agent.md)
+  - [05-JSON-RPC.md](13-AI/05-JSON-RPC.md)
   - [readme.md](13-AI/readme.md)
   - _demo
     - [01-face-detach.html](13-AI/_demo/01-face-detach.html)
