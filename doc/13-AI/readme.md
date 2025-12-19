@@ -3,6 +3,10 @@
 - TensorFlow.js
 - ONNX.js
 
+## Demo
+
+- [mcp-playground](https://github.com/swlws/mcp-playground)
+
 ## OpenAI
 
 - [OpenAI - MCP](https://developers.openai.com/apps-sdk/concepts/mcp-server)
