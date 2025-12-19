@@ -343,6 +343,7 @@
 - 13-AI
   - [01-LLM、MCP、RAG、Agent之间的关系.md](13-AI/01-LLM、MCP、RAG、Agent之间的关系.md)
   - [02-RAG.md](13-AI/02-RAG.md)
+  - [03-MCP.md](13-AI/03-MCP.md)
   - [readme.md](13-AI/readme.md)
   - _demo
     - [01-face-detach.html](13-AI/_demo/01-face-detach.html)
